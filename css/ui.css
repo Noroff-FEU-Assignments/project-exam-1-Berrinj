@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #504E4E;
+    font-family: 'Inter', sans-serif;
 }
 
 h4,
@@ -10,8 +11,18 @@ h5 {
     margin: 0;
 }
 
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .horizontal-line {
-    border-bottom: 1px solid white;
+    border-bottom: 1px dotted white;
     margin: 5px 10px;
 }
 
@@ -21,7 +32,6 @@ h5 {
     max-width: 1200px;
     margin: auto;
     line-height: 60px;
-    padding: 0;
 }
 
 .main-menu li {
@@ -74,6 +84,7 @@ h1.site-name-placeholder {
 
 .left-info-image img {
     max-width: 450px;
+    min-width: 200px;
     height: 250px;
     opacity: 50%;
     object-fit: cover;
@@ -89,9 +100,13 @@ h1.site-name-placeholder {
     text-align: center;
 }
 
+.center-site-info p {
+    margin-bottom: 5px;
+}
+
 .scroll-down {
     width: 150px;
-    margin: auto;
+    margin: 0 auto;
 }
 
 
@@ -116,16 +131,21 @@ h1.site-name-placeholder {
     justify-content: flex-end;
     background-color: #35423A;
     background: linear-gradient(45deg, transparent 20%, var(--main-color-one) 20%);
-    width: 250px;
+    width: 260px;
     height: 30px;
     text-align: end;
     padding-right: 10px;
     color: #fff;
 }
 
+.new-posts-site-info-header-text h5 {
+    font-weight: 300;
+}
+
 .new-posts-site-info-header p {
     color: #504E4E;
     margin-left: 10px;
+    font-size: 0.8rem;
     font-style: italic;
 }
 
@@ -141,9 +161,10 @@ h1.site-name-placeholder {
     text-align: center;
     margin: 0;
     color: #2D2929;
+    font-weight: 300;
 }
 
-.main-content {
+main {
     max-width: 1200px;
     display: grid;
     grid-template-columns: [blog] 1fr [sidebar] 250px;
@@ -218,7 +239,7 @@ h1.site-name-placeholder {
 
 .blog-post-text {
     margin: 3%;
-    font-size: 1.2rem;
+    /* font-size: 1.2rem; */
 }
 
 .blog-post-info {
@@ -243,6 +264,7 @@ h1.site-name-placeholder {
     color: var(--main-color-two);
     grid-column: sidebar;
     border-left: 1px solid var(--main-color-one);
+    grid-template-rows: min-content min-content auto;
 }
 
 .sidebar h2 {
@@ -254,7 +276,85 @@ h1.site-name-placeholder {
     opacity: 80%;
 }
 
+.newest-posts,
+.newest-comments {
+    margin-bottom: 50px;
+}
+
+.newest-posts ul,
+.newest-comments ul {
+    margin-right: 7%;
+    margin-left: 7%;
+    font-size: 0.9rem;
+    color: #fff;
+    font-weight: 300;
+}
+
+.newest-comments li {
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+
+.read-more {
+    text-align: end;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    border-bottom: 1px solid var(--main-color-two);
+    font-style: italic;
+    font-weight: 200;
+}
+
+.breadcrumbs {
+    margin-left: 5%;
+    font-size: 0.85rem;
+    font-weight: 300;
+}
+
+.breadcrumbs p {
+    margin: 0;
+}
+
 footer {
     background-color: var(--main-color-one);
-    height: 300px;
+    height: 250px;
+}
+
+
+/* SINGLE BLOG POST PAGE */
+
+.main-container {
+    max-width: 1200px;
+    background-color: #fff;
+    height: fit-content;
+    margin: auto;
+    padding-bottom: 30px;
+}
+
+.main-post-img {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.main-container h1 {
+    margin: 0 5% 0 5%;
+    padding-top: 20px;
+}
+
+.single-blog-post-info {
+    display: flex;
+    margin-left: 5%;
+    gap: 40px;
+    font-size: 0.85rem;
+}
+
+.single-blog-post-text {
+    margin-left: 5%;
+}
+
+.category {
+    margin-left: 5%;
+    font-style: italic;
+    font-size: 0.85rem;
 }
