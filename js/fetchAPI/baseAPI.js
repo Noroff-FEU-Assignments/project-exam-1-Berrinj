@@ -1,3 +1,3 @@
-const API_BASE_URL = `https://fenty.berremarte.no`;
+export const API_BASE_URL = `https://fenty.berremarte.no/wp-json/wp/v2`;
 
-export const FENTY_API_URL = `${API_BASE_URL}/wp-json/wp/v2/posts?_embed`;
+export const FENTY_API_URL = `${API_BASE_URL}/posts`;
