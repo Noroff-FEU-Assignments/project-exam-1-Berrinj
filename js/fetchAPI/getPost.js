@@ -1,7 +1,9 @@
 import { FENTY_EMBED_API_URL } from "./embedAPI.js";
 import { getPosts } from "../utils/posts.js";
 import { renderMedia } from "../utils/renderMedia.js";
-import { renderCategories } from "../utils/renderCategories.js";
+import { FENTY_COMMENTS_API_URL } from "./commentsAPI.js";
+import { getComments } from "../utils/comments.js";
+// import { renderCategories } from "../utils/renderCategories.js";
 
 const main = document.querySelector(`main`);
 
@@ -85,8 +87,18 @@ async function renderNewestBlogPosts() {
    
 }
 
+async function renderNewestComments() {
+    const newCommentList = await getComments(FENTY_COMMENTS_API_URL);
+
+    const newestCommentSection = document.querySelector(".newest-comments ul");
+    newCommentList.slice(0, 5).forEach((newComment) => {
+    newestCommentSection.innerHTML += `<li><a href="single-post.html?id=${newComment.post}">${newComment.author_name} har kommentert: ${newComment.content.rendered}</li></a>`;
+  
+    });
+    }  
 
 
+renderNewestComments()
 renderNewestBlogPosts();
 
 renderBlogPosts();

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fenty.no</title>
-    <link rel="stylesheet" href="/css/ui.css">
+    <link rel="stylesheet" href="/css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -23,12 +23,12 @@
         </div>
         <nav class="main-menu">
             <ul>
-                <li>HJEM</li>
+                <li><a href="index.html">HJEM</a></li>
                 <li><a href="about.html">OM OSS</a></li>
-                <li>FENTY BEAUTY</li>
-                <li>FENTY SKIN</li>
-                <li>SAVAGEx</li>
-                <li>KONTAKT</li>
+                <li><a href="about.html">FENTY BEAUTY</a></li>
+                <li><a href="about.html">FENTY SKIN</a></li>
+                <li><a href="about.html">SAVAGEx</a></li>
+                <li><a href="contact.html">KONTAKT</a></li>
             </ul>
         </nav>
     </head>
@@ -39,7 +39,7 @@
             </div>
             <div class="center-site-info">
                 <img class="scroll-down" src="/img/skroll-ned.png">
-                <p>Side informasjon</p>
+                <p class="center-site-info-header">Side Introduksjon</p>
                 <div class="horizontal-line"></div>
                 <p>Velkommen til <b>FENTY.no</b></p>
                 <p>Få alle de siste nyhetene om Rihannas seneste utgivelelser fra hennes Fenty univers</p>
@@ -56,14 +56,15 @@
 
             </div>
         </div>
-        <h1 class="news-and-content">NYHETER OG INNHOLD</h1>
+    </div>
+    <h1 class="news-and-content">NYHETER OG INNHOLD</h1>
 
-        <main>
-            <div class="blog-and-sidebar">
-                <div class="blog-content">
-                    <div class="blog-posts-container">
-                        <div class="loader">Loading..</div>
-                        <!-- <div class="blog-post">
+    <main>
+        <div class="blog-and-sidebar">
+            <div class="blog-content">
+                <div class="blog-posts-container">
+                    <div class="loader">Loading..</div>
+                    <!-- <div class="blog-post">
                     <a href="single-post.html">
                         <div class="blog-post-header">
                             <div class="blog-date">
@@ -190,18 +191,18 @@
                     </div>
 
                 </div> -->
-                    </div>
-                    <p class="load-more">Last inn flere innlegg</p>
-
                 </div>
-                <div class="sidebar">
-                    <div class="newest-posts">
-                        <img src="/img/newsest-posts.png">
-                        <h2>Nyeste innlegg</h2>
-                        <div class="horizontal-line"></div>
-                        <div class="new-blog-post-list">
-                            <ul>
-                                <!--
+                <p class="load-more">Last inn flere innlegg</p>
+
+            </div>
+            <div class="sidebar">
+                <div class="newest-posts">
+                    <img src="/img/newsest-posts.png">
+                    <h2>Nyeste innlegg</h2>
+                    <div class="horizontal-line"></div>
+                    <div class="new-blog-post-list">
+                        <ul>
+                            <!--
                             <li>Dette er den nyeste posten</li>
                             <p class="read-more">Les mer</p>
                             <li>Dette er den nest nyeste posten</li>
@@ -211,32 +212,47 @@
                             <li>Dette er den fjerde nyeste posten</li>
                             <p class="read-more">Les mer</p>
                         -->
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="newest-comments">
-                        <img src="/img/instagram-header.png">
-                        <h2>Siste kommentarer</h2>
-                        <div class="horizontal-line"></div>
-                        <ul>
-                            <li>Dette er den nyeste kommentaren</li>
-                            <li>Dette er den nest nyeste kommentaren</li>
-                            <li>Dette er den tredje kommentaren</li>
-                            <li>Dette er den fjerde nyeste kommentaren</li>
                         </ul>
                     </div>
-                    <div class="newest-instagram">
-                        <img src="/img/instagram-header.png">
-                        <h2>Instagram feed</h2>
-                        <div class="horizontal-line"></div>
-                    </div>
-
                 </div>
+                <div class="newest-comments">
+                    <img src="/img/instagram-header.png">
+                    <h2>Siste kommentarer</h2>
+                    <div class="horizontal-line"></div>
+                    <ul>
+                        <!-- <li>Dette er den nyeste kommentaren</li>
+                            <li>Dette er den nest nyeste kommentaren</li>
+                            <li>Dette er den tredje kommentaren</li>
+                            <li>Dette er den fjerde nyeste kommentaren</li> -->
+                    </ul>
+                </div>
+                <div class="newest-instagram">
+                    <img src="/img/instagram-header.png">
+                    <h2>Instagram feed</h2>
+                    <div class="horizontal-line"></div>
+                </div>
+
             </div>
-        </main>
-        <footer>
-            Copyright berremarte.no 2024
-        </footer>
+        </div>
+    </main>
+    <footer>
+        <div class="left-footer">
+            <div class="footer-menu">
+                <ul>
+                    <li>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="center-footer">
+            <div class="copyright">
+                <p>Copyright berremarte.no 2024</p>
+                </p>All Rights Reserved</p>
+            </div>
+        </div>
+        <div class="right-footer"></div>
+
+    </footer>
 </body>
 
 </html>

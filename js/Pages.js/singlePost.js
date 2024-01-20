@@ -10,15 +10,15 @@ export const id = params.get("id");
 const url =`${FENTY_API_URL}/${id}?_embed`;
 console.log(url);
 const main = document.querySelector("main");
-const mainContainer = document.querySelector(".main-container");
+const mainContainer = document.querySelector(".single-blogpost-container");
+
 
 async function getSinglePost() {
     try {
     const response = await fetch(url);
     const result = await response.json();
-
+  
     console.log(result);
-
     mainContainer.innerHTML = ``;
     document.title = `Fenty - Single post Page - ${result.title.rendered}`;
     const featuredMedia = result._embedded['wp:featuredmedia'] && result._embedded['wp:featuredmedia'][0] && result._embedded['wp:featuredmedia'][0].source_url;
