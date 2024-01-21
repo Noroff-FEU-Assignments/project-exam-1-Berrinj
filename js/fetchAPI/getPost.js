@@ -7,6 +7,7 @@ import { getComments } from "../utils/comments.js";
 
 const main = document.querySelector(`main`);
 
+
 function createBlogPost(post) {
 
     try {
@@ -96,6 +97,16 @@ async function renderNewestComments() {
   
     });
     }  
+
+async function renderPostCarousel() {
+    const postCarousel = document.querySelector(".new-blog-post-carousel");
+    const displayPost = await getPosts(FENTY_EMBED_API_URL);
+    const featuredMedia = displayPost[1]._embedded['wp:featuredmedia'] && displayPost[1]._embedded['wp:featuredmedia'][0] && displayPost[1]._embedded['wp:featuredmedia'][0].source_url;
+    const imageUrl = featuredMedia || '/img/RIHANNAnm.jpg';
+    postCarousel.innerHTML = `<img class="carousel-img" src="${imageUrl}"> <p class="carousel-text">${displayPost[1].title.rendered}</p>`
+}
+
+renderPostCarousel();
 
 
 renderNewestComments()

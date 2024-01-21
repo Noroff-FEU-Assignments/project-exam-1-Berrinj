@@ -1,0 +1,65 @@
+@media (max-width: 1080px) {
+    .left-info-image img {
+        /* display: none; */
+        width: 200px;
+    }
+
+    .new-posts-site-info {
+        width: 100%;
+    }
+
+    .new-blog-post-carousel {
+        width: 80%;
+    }
+
+    .carousel-img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 920px) {
+
+    .left-info-image img {
+        display: none;
+
+    }
+
+    .blog-and-sidebar {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidebar {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .newest-instagram {
+        display: none;
+    }
+}
+
+@media (max-width: 670px) {
+    .blog-post-header-img img {
+        max-width: 200px;
+        height: 50px;
+    }
+
+    .site-info-container {
+        display: none;
+    }
+
+    .new-posts-site-info {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .blog-post-header-img img {
+        display: none;
+    }
+
+}

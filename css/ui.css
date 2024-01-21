@@ -82,7 +82,7 @@ h1.site-name-placeholder {
 }
 
 .left-info-image {
-    width: 450px;
+    max-width: 450px;
     height: 250px;
     background-color: var(--main-color-three)
 }
@@ -134,7 +134,7 @@ h1.site-name-placeholder {
 .new-posts-site-info-header {
     display: flex;
     justify-content: space-between;
-    width: 450px;
+    width: 100%;
     height: 30px;
     align-items: center;
     margin-bottom: 10px;
@@ -164,14 +164,6 @@ h1.site-name-placeholder {
     font-style: italic;
 }
 
-.new-blog-post-carousel {
-    width: 350px;
-    height: 200px;
-    background-color: var(--main-color-one);
-    border-radius: 6px;
-    margin: auto;
-}
-
 .news-and-content {
     text-align: center;
     margin: 0;
@@ -199,6 +191,22 @@ h1.site-name-placeholder {
 .blog-post {
     margin-bottom: 50px;
     background-color: #fff;
+}
+
+.blog-post li {
+    /* list-style: decimal; */
+    max-width: 750px;
+    margin: 10px auto;
+}
+
+.blog-post-text p {
+    margin: auto;
+    max-width: 800px;
+}
+
+.blog-post-text a {
+    color: #547060;
+    font-style: italic;
 }
 
 .blog-post-header {
@@ -278,12 +286,12 @@ h1.site-name-placeholder {
     width: 200px;
     height: 200px;
 } */
-/* 
+
 .wp-block-image img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
-} */
+}
 
 .blog-post-info {
     display: flex;
@@ -358,6 +366,7 @@ h1.site-name-placeholder {
 
 .breadcrumbs {
     margin-left: 5%;
+    margin-top: 5px;
     font-size: 0.85rem;
     font-weight: 300;
     display: flex;
@@ -374,6 +383,7 @@ h1.site-name-placeholder {
 /* SINGLE BLOG POST PAGE */
 
 .single-blogpost-container,
+.contact-page-container,
 .main-content {
     max-width: 1200px;
     background-color: #fff;

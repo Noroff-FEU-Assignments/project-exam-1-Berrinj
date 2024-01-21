@@ -1,14 +1,83 @@
+.carousel-arrow-content {
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.right-arrow img,
+.left-arrow img {
+    height: 30px;
+    padding: 5px;
+}
+
+.right-arrow img:hover,
+.left-arrow img:hover {
+    height: 35px;
+}
+
+.new-blog-post-carousel {
+    width: 350px;
+    height: 200px;
+    background-color: var(--main-color-one);
+    border-radius: 6px;
+    margin: auto;
+    position: relative;
+    text-align: center;
+}
+
+.carousel-img {
+    width: 350px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+    /* position: relative; */
+}
+
+.carousel-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(173, 186, 178, 0.9);
+    width: fit-content;
+    max-width: 250px;
+    margin: 0;
+    padding: 10px;
+    border-radius: 0 6px;
+}
+
+
+
 /*   ABOUT PAGE */
+.about-img {
+    height: 300px;
+    object-fit: cover;
+    box-shadow: 0 7px 9px var(--main-color-one);
+}
 
 .about-text {
-    padding: 10%
+    padding: 5% 10%
 }
 
 .about-text h1 {
     text-align: center;
 }
 
+
 /* CONTACT PAGE */
+.contact-img {
+    height: 300px;
+    object-fit: cover;
+    box-shadow: 0 7px 12px var(--main-color-one);
+    margin-bottom: 20px;
+}
+
+.contact-page-container h1,
+.contact-page-container p {
+    text-align: center;
+    max-width: 700px;
+    margin: auto;
+    padding: 10px;
+}
 
 fieldset {
     max-width: 465px;
@@ -17,10 +86,20 @@ fieldset {
     margin-top: 20px;
     border-radius: 10px;
     border: 1px solid black;
+    background-color: var(--main-color-two);
+}
+
+fieldset legend {
+    background-color: var(--main-color-one);
+    padding: 6px 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    color: #fff;
 }
 
 fieldset input {
     border-radius: 7px;
+
 }
 
 fieldset ul {
@@ -38,6 +117,18 @@ textarea {
     box-sizing: border-box;
 }
 
+.submit-form {
+    text-align: end;
+}
+
+#submit {
+    padding: 10px;
+    width: 100px;
+    background-color: var(--main-color-one);
+    border-radius: 6px;
+    color: #fff;
+}
+
 footer {
     background-color: var(--main-color-one);
     height: 250px;
@@ -53,7 +144,8 @@ footer {
 
 .center-footer {
     display: flex;
-    width: 20%;
+    max-width: 300px;
+    min-width: 200px;
     justify-content: center;
     align-items: center;
 }
