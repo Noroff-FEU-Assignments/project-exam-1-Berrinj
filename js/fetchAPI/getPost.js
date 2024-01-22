@@ -67,7 +67,7 @@ export async function renderBlogPosts() {
     const blogPostContainer = document.querySelector(".blog-posts-container");
     blogPostContainer.innerHTML = "";
 
-   blogPosts.forEach((post) => {
+   blogPosts.slice(0, 10).forEach((post) => {
     const blogPostCard = createBlogPost(post);
     blogPostContainer.appendChild(blogPostCard);
     console.log(post.id);
@@ -77,7 +77,6 @@ export async function renderBlogPosts() {
 }
 async function renderNewestBlogPosts() {
     let newPostList = await getPosts(FENTY_EMBED_API_URL);
-    console.log("Post List:", newPostList);
 
     const newestBlogPostSection = document.querySelector(".new-blog-post-list ul");
 

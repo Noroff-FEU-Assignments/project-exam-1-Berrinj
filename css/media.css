@@ -39,6 +39,10 @@
     .newest-instagram {
         display: none;
     }
+
+    .filter-posts {
+        display: none;
+    }
 }
 
 @media (max-width: 670px) {

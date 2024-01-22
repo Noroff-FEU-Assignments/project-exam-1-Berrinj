@@ -25,9 +25,14 @@
             <ul>
                 <li><a href="index.html">HJEM</a></li>
                 <li><a href="about.html">OM OSS</a></li>
-                <li><a href="about.html">FENTY BEAUTY</a></li>
-                <li><a href="about.html">FENTY SKIN</a></li>
-                <li><a href="about.html">SAVAGEx</a></li>
+                <li class="sub-menu-start"><a href="#">VAREMERKER</a>
+                    <ul class="sub-menu">
+                        <li><a href="fenty-beauty.html">-FEИTY BEAUTY</a></li>
+                        <li><a href="fenty-skin.html">-FENTY SKIN</a></li>
+                        <li><a href="savagex.html">-SAVAGEx</a></li>
+                    </ul>
+                </li>
+                <li><a href="discography.html">MUSIKK</a></li>
                 <li><a href="contact.html">KONTAKT</a></li>
             </ul>
         </nav>
@@ -46,7 +51,7 @@
             </div>
             <div class="new-posts-site-info">
                 <div class="new-posts-site-info-header">
-                    <p>Klikk på pilene for å se mer</p>
+                    <p>Klikk på pilene for mer</p>
                     <div class="new-posts-site-info-header-text">
                         <h5>Sjekk ut de nyeste innleggene</h5>
                     </div>
@@ -202,6 +207,30 @@
 
             </div>
             <div class="sidebar">
+                <div class="filter-posts">
+                    <img src="/img/instagram-header.png">
+                    <h2>Filtrer Innlegg:</h2>
+                    <div class="horizontal-line"></div>
+                    <div class="filter-posts">
+                        <div class="fenty-beauty-checkbox">
+                            <input type="checkbox" id="fenty-beauty-filter" name="fenty-beauty">
+                            <label for="fenty-beauty">Fenty Beauty</label>
+                        </div>
+                        <div class="fenty-skin-checkbox">
+                            <input type="checkbox" id="fenty-skin-filter" name="fenty-skin">
+                            <label for="fenty-skin">Fenty Skin</label>
+                        </div>
+                        <div class="savagex-checkbox">
+                            <input type="checkbox" id="savagex-filter" name="savagex">
+                            <label for="savagex">Savagex</label>
+                        </div>
+                        <div class="music-checkbox">
+                            <input type="checkbox" id="music-filter" name="music">
+                            <label for="music">Musikk</label>
+                        </div>
+                        <button class="filter-button">Filtrer</button>
+                    </div>
+                </div>
                 <div class="newest-posts">
                     <img src="/img/instagram-header.png">
                     <h2>Nyeste innlegg</h2>

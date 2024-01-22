@@ -1,3 +1,101 @@
+/*      GLOBAL TEXT, LIST, LINK, ATTRIBUTES STYLING     */
+h4,
+h2,
+h5 {
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.horizontal-line {
+    border-bottom: 1px dotted white;
+    margin: 5px 10px;
+}
+
+
+
+/*          GLOBAL PAGES STYLING    */
+.page-header-img {
+    height: 300px;
+    object-fit: cover;
+    box-shadow: 0 7px 9px var(--main-color-one);
+}
+
+.about-text {
+    padding: 5% 10%
+}
+
+.about-text h1 {
+    text-align: center;
+}
+
+
+/*      LOADER      */
+.loader {
+    color: #fff;
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    font-size: 2rem;
+    background-color: var(--main-color-three);
+}
+
+
+/*      BUTTONS     */
+.filter-button {
+    margin: 0 7%;
+    background-color: var(--main-color-two);
+    padding: 6px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.filter-button:hover {
+    background-color: var(--main-color-one);
+    color: var(--main-color-two);
+}
+
+/* .main-menu>ul ul {
+    display: none;
+} 
+*/
+.main-menu>ul>li.sub-menu-start>ul.sub-menu {
+    display: none;
+}
+
+.main-menu>ul>li.sub-menu-start:hover>ul.sub-menu {
+    display: block;
+    top: 60px;
+}
+
+.main-menu a {
+    padding: 0 10px 0 10px;
+}
+
+.sub-menu {
+    position: absolute;
+    background-color: black;
+    padding: 0 10px 10px 10px;
+    z-index: 1;
+    color: var(--main-color-two);
+    border-radius: 0px 0px 6px 6px;
+}
+
+.sub-menu li {
+    display: block;
+
+}
+
+
 .carousel-arrow-content {
     display: flex;
     align-items: center;
@@ -8,11 +106,13 @@
 .left-arrow img {
     height: 30px;
     padding: 5px;
+    opacity: 70%;
+    cursor: pointer;
 }
 
 .right-arrow img:hover,
 .left-arrow img:hover {
-    height: 35px;
+    opacity: 100%;
 }
 
 .new-blog-post-carousel {
@@ -45,39 +145,22 @@
     border-radius: 0 6px;
 }
 
+/*   SIDEBAR   */
 
-
-/*   ABOUT PAGE */
-.about-img {
-    height: 300px;
-    object-fit: cover;
-    box-shadow: 0 7px 9px var(--main-color-one);
+.fenty-beauty-checkbox,
+.fenty-skin-checkbox,
+.savagex-checkbox,
+.music-checkbox {
+    margin: 10px 7%;
 }
 
-.about-text {
-    padding: 5% 10%
-}
-
-.about-text h1 {
-    text-align: center;
-}
-
-
-/* CONTACT PAGE */
-.contact-img {
-    height: 300px;
-    object-fit: cover;
-    box-shadow: 0 7px 12px var(--main-color-one);
+.filter-posts:last-child {
     margin-bottom: 20px;
 }
 
-.contact-page-container h1,
-.contact-page-container p {
-    text-align: center;
-    max-width: 700px;
-    margin: auto;
-    padding: 10px;
-}
+
+
+/* CONTACT PAGE */
 
 fieldset {
     max-width: 465px;
@@ -129,6 +212,8 @@ textarea {
     color: #fff;
 }
 
+
+/* FOOTER   */
 footer {
     background-color: var(--main-color-one);
     height: 250px;
