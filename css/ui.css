@@ -319,11 +319,11 @@ h1.site-name-placeholder {
     color: #ADBAB2;
     margin: auto;
     margin-bottom: 50px;
-    cursor: pointer;
 }
 
-.load-more:hover {
+.load-more-link:hover {
     font-style: italic;
+    cursor: pointer;
 }
 
 .sidebar {
@@ -435,6 +435,10 @@ h1.site-name-placeholder {
 .single-blog-post-text {
     margin-left: 5%;
     margin-right: 5%;
+}
+
+.single-blog-post-text li {
+    padding: 5px;
 }
 
 .category {
