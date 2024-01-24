@@ -16,14 +16,28 @@ function createBlogPost(post) {
     blogPostCard.dataset.postId = post.id;
     blogPostCard.classList.add(`blog-post`);
 
+    const openModalimg = document.querySelector(".wp-block-gallery figure a");
+    console.log(openModalimg);
+
+
     // const featuredMedia = post._embedded['wp:featuredmedia']['0'].source_url
     const featuredMedia = post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0] && post._embedded['wp:featuredmedia'][0].source_url;
     const imageUrl = featuredMedia || '/img/RIHANNAnm.jpg';
 
+    const formattedDate = new Date(post.date).toLocaleDateString('nb-NO', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+});
+    const formattedTime = new Date(post.date).toLocaleTimeString('nb-NO', {
+    hour: 'numeric',
+    minute: 'numeric'
+});
+
 
     blogPostCard.innerHTML = `<div class="blog-post-header">
                                 <div class="blog-date">
-                                    <h4>${post.date}</h4>
+                                    <h4>${formattedDate}</h4>
                                 </div>
                                 <div class="blog-post-header-img">
                                     <img src="/img/post-top-image.png">
@@ -46,7 +60,7 @@ function createBlogPost(post) {
                                     <p>Posted by: ${post._embedded.author[0].name}</p>
                                 </div>
                                 <div class="dateandtime">
-                                    <p>January 16th 2024 15:45</p>
+                                    <p>${formattedDate} ${formattedTime}</p>
                                 </div>
                                 <div class="comments">
                                     <p>5 comments</p>
@@ -75,7 +89,7 @@ async function loadMorePosts(){
         morePosts.forEach((post) => {
         const blogPostCard = createBlogPost(post);
         blogPostContainer.appendChild(blogPostCard);
-         
+        
         });
     if(morePosts.length === 0) {
             loadMoreButton.disabled = true;
@@ -131,13 +145,48 @@ async function renderNewestComments() {
     });
     }  
 
+    let currentPostIndex = 0;
+    let displayPost;
+    const leftArrow = document.querySelector(".left-arrow");
+    const rightArrow = document.querySelector(".right-arrow");
+
 async function renderPostCarousel() {
     const postCarousel = document.querySelector(".new-blog-post-carousel");
-    const displayPost = await getPosts(FENTY_EMBED_API_URL);
-    const featuredMedia = displayPost[6]._embedded['wp:featuredmedia'] && displayPost[6]._embedded['wp:featuredmedia'][0] && displayPost[6]._embedded['wp:featuredmedia'][0].source_url;
+    displayPost = await getPosts(`${FENTY_EMBED_API_URL}&per_page=5`);
+    const featuredMedia = displayPost[currentPostIndex]._embedded['wp:featuredmedia'] && displayPost[currentPostIndex]._embedded['wp:featuredmedia'][0] && displayPost[currentPostIndex]._embedded['wp:featuredmedia'][0].source_url;
     const imageUrl = featuredMedia || '/img/RIHANNAnm.jpg';
-    postCarousel.innerHTML = `<img class="carousel-img" src="${imageUrl}"> <p class="carousel-text">${displayPost[6].title.rendered}</p>`
+    postCarousel.innerHTML = `<a href="single-post.html?id=${displayPost[currentPostIndex].id}"><img class="carousel-img" src="${imageUrl}"> <p class="carousel-text">${displayPost[currentPostIndex].title.rendered}</p>`
+
+    updateArrowButtonStates();
 }
+
+function handleRightArrow() {
+    if (currentPostIndex < displayPost.length - 1) {
+        currentPostIndex++;
+        renderPostCarousel();
+    } else {
+        
+    }
+}
+
+function handleLeftArrow() {
+    if (currentPostIndex > 0) {
+        currentPostIndex--;
+    } else {
+        currentPostIndex = 0;
+    }
+    renderPostCarousel();
+}
+
+function updateArrowButtonStates() {
+    leftArrow.classList.toggle('disabled-arrow', currentPostIndex === 0);
+    rightArrow.classList.toggle('disabled-arrow', currentPostIndex === displayPost.length - 1);
+}
+
+rightArrow.addEventListener("click", handleRightArrow);
+leftArrow.addEventListener("click", handleLeftArrow);
+
+
 
 
 renderPostCarousel();

@@ -28,6 +28,16 @@ async function getSinglePost() {
         const categoryName = categoriesList.length > 0 ? categoriesList[0].name : 'Uncategorized';
         const categoryURL = categoriesList[0].link;
 
+        const formattedDate = new Date(result.date).toLocaleDateString('nb-NO', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        });
+            const formattedTime = new Date(result.date).toLocaleTimeString('nb-NO', {
+            hour: 'numeric',
+            minute: 'numeric'
+        });
+
     mainContainer.innerHTML = `<img class="main-post-img" src="${imageUrl}">
                                 <div class="breadcrumbs">
                                     <p><a href="index.html">Home</a></p> / <p><a href="${categoryURL}">${categoryName}</p></a> / <p>${result.title.rendered}</p>
@@ -38,7 +48,7 @@ async function getSinglePost() {
                                         <p>Posted by: ${result._embedded.author[0].name}</p>
                                     </div>
                                     <div class="dateandtime">
-                                        <p>January 16th 2024 15:45</p>
+                                        <p>${formattedDate} ${formattedTime}</p>
                                     </div>
                                     <div class="comments">
                                         <p>5 comments</p>
@@ -49,7 +59,8 @@ async function getSinglePost() {
                                 </div>
                                 <div class="category">
                                     <p>Category: ${categoryName} </p>
-                                </div>`;
+                                </div>
+                                <div id="go-back" onclick="history.back()">&larr; Gå tilbake</div>`;
 
 
     } catch(error) {

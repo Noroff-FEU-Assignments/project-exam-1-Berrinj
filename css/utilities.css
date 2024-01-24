@@ -116,6 +116,11 @@ a {
     opacity: 100%;
 }
 
+.disabled-arrow {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 .new-blog-post-carousel {
     width: 350px;
     height: 200px;
@@ -144,9 +149,13 @@ a {
     width: fit-content;
     max-width: 300px;
     margin: 0;
-    padding: 10px 0;
+    padding: 10px 10px;
     border-radius: 0 6px;
 }
+
+/* p.carousel-text {
+    padding-left: 10px;
+} */
 
 /*   SIDEBAR   */
 

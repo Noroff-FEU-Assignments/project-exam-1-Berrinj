@@ -259,6 +259,7 @@ h1.site-name-placeholder {
 
 .wp-block-gallery {
     display: flex;
+    /* display: none; */
     flex-wrap: wrap;
     max-width: 100%;
     justify-content: center;
@@ -291,8 +292,17 @@ h1.site-name-placeholder {
     font-size: 0.9rem;
 }
 
-#read-more:hover {
+#read-more:hover,
+#go-back:hover {
     font-weight: 600;
+}
+
+#go-back {
+    text-align: left;
+    font-style: italic;
+    margin: 3%;
+    font-size: 0.9rem;
+    cursor: pointer;
 }
 
 .blog-post-info {
