@@ -36,6 +36,10 @@
         gap: 10px;
     }
 
+    .searchbar {
+        display: none;
+    }
+
     .newest-instagram {
         display: none;
     }

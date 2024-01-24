@@ -16,7 +16,6 @@ function createBlogPost(post) {
     blogPostCard.dataset.postId = post.id;
     blogPostCard.classList.add(`blog-post`);
 
-
     // const featuredMedia = post._embedded['wp:featuredmedia']['0'].source_url
     const featuredMedia = post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0] && post._embedded['wp:featuredmedia'][0].source_url;
     const imageUrl = featuredMedia || '/img/RIHANNAnm.jpg';
@@ -38,7 +37,9 @@ function createBlogPost(post) {
                                     <h1 class="blog-post-title">${post.title.rendered}</h1></a>
                                 </div>
                                 <div class="blog-post-text">
-                                ${post.content.rendered}</div>
+                                ${post.content.rendered}
+                                </div>
+                                <div id="read-more"><a href="single-post.html?id=${post.id}">Gå til innlegg &rarr;</a></div>
                             </div>
                             <div class="blog-post-info">
                                 <div class="author">
@@ -60,21 +61,54 @@ function createBlogPost(post) {
 }
 }
 
+
+let loadMoreButton = document.querySelector(".load-more");
+const blogPostContainer = document.querySelector(".blog-posts-container");
+let currentPage = 1;
+
+async function loadMorePosts(){
+    try {
+        currentPage++;
+        let morePosts = await getPosts(`${FENTY_EMBED_API_URL}&page=${currentPage}`);
+        console.log("New Post Data:", morePosts);
+    
+        morePosts.forEach((post) => {
+        const blogPostCard = createBlogPost(post);
+        blogPostContainer.appendChild(blogPostCard);
+         
+        });
+    if(morePosts.length === 0) {
+            loadMoreButton.disabled = true;
+        }
+       
+    } catch (error) {
+        console.log(error, "Error loading more posts");
+    }
+    }
+
+    loadMoreButton.addEventListener("click", loadMorePosts);
+
+
 export async function renderBlogPosts() {
-    let blogPosts = await getPosts(FENTY_EMBED_API_URL); 
+    try{
+    let blogPosts = await getPosts(`${FENTY_EMBED_API_URL}&page=${currentPage}`);
     console.log("Post Data:", blogPosts);
 
-    const blogPostContainer = document.querySelector(".blog-posts-container");
     blogPostContainer.innerHTML = "";
 
-   blogPosts.slice(0, 10).forEach((post) => {
+   blogPosts.forEach((post) => {
     const blogPostCard = createBlogPost(post);
     blogPostContainer.appendChild(blogPostCard);
     console.log(post.id);
     console.log(post.title);
-}); 
+});
+ } catch (error) {
+    console.log(error, "Sorry an error occurred");
+ }
 
 }
+
+
 async function renderNewestBlogPosts() {
     let newPostList = await getPosts(FENTY_EMBED_API_URL);
 
@@ -100,10 +134,11 @@ async function renderNewestComments() {
 async function renderPostCarousel() {
     const postCarousel = document.querySelector(".new-blog-post-carousel");
     const displayPost = await getPosts(FENTY_EMBED_API_URL);
-    const featuredMedia = displayPost[1]._embedded['wp:featuredmedia'] && displayPost[1]._embedded['wp:featuredmedia'][0] && displayPost[1]._embedded['wp:featuredmedia'][0].source_url;
+    const featuredMedia = displayPost[6]._embedded['wp:featuredmedia'] && displayPost[6]._embedded['wp:featuredmedia'][0] && displayPost[6]._embedded['wp:featuredmedia'][0].source_url;
     const imageUrl = featuredMedia || '/img/RIHANNAnm.jpg';
-    postCarousel.innerHTML = `<img class="carousel-img" src="${imageUrl}"> <p class="carousel-text">${displayPost[1].title.rendered}</p>`
+    postCarousel.innerHTML = `<img class="carousel-img" src="${imageUrl}"> <p class="carousel-text">${displayPost[6].title.rendered}</p>`
 }
+
 
 renderPostCarousel();
 
@@ -113,3 +148,4 @@ renderNewestBlogPosts();
 
 renderBlogPosts();
 renderMedia();
+
