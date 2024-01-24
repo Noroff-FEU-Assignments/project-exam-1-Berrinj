@@ -3,6 +3,7 @@ import { getCategories } from "../utils/categories.js";
 import { FENTY_EMBED_API_URL } from "../fetchAPI/embedAPI.js";
 import { FENTY_API_URL } from "../fetchAPI/baseAPI.js";
 import { getPosts } from "./posts.js";
+import { dataFromContentRendered } from "./reverseEngineerContentRendered.js";
 
 
 const queryString = document.location.search;
@@ -65,14 +66,15 @@ export async function getSinglePost() {
                                     <p>Category: ${categoryName} </p>
                                 </div>
                                 <div id="go-back" onclick="history.back()">&larr; Gå tilbake</div>`;
+                                await example();
     } catch(error) {
         main.innerHTML = `<div class="error">We are so sorry, an error occurred while loading this page.</div>`;
         console.log(error, `Sorry, an error occurred`);
     }
 }
 
-// export async function example() {
-//     const post = await getPosts(`${FENTY_API_URL}/${id}?_embed`);
-//     const data = dataFromContentRendered(post.content.rendered);
-//     console.log(data);
-// }
+export async function example() {
+    const post = await getPosts(`${FENTY_API_URL}/${id}?_embed`);
+    const data = dataFromContentRendered(post.content.rendered);
+    console.log(data);
+}
