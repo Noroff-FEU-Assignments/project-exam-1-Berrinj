@@ -3,7 +3,7 @@
 // import { FENTY_CATEGORY_API_URL } from "../fetchAPI/categoriesAPI.js";
 // import { getCategories } from "../utils/categories.js";
 import { getSinglePost } from "../utils/getSinglePost.js";
-import { example } from "../utils/reverseEngineerContentRendered.js";
+// import { example } from "../utils/reverseEngineerContentRendered.js";
 
 // const queryString = document.location.search;
 // export const params = new URLSearchParams(queryString);
@@ -70,6 +70,6 @@ import { example } from "../utils/reverseEngineerContentRendered.js";
 //     }
 // }
 
-example();
+// example();
 
 getSinglePost();

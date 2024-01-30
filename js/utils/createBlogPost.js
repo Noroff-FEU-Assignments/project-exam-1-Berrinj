@@ -38,6 +38,7 @@ export function createBlogPost(post) {
                                 </div>
                                 <div class="blog-post-text">
                                 ${post.content.rendered}
+
                                 </div>
                                 <div id="read-more"><a href="single-post.html?id=${post.id}">Gå til innlegg &rarr;</a></div>
                             </div>
