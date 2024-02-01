@@ -44,9 +44,9 @@
         display: none;
     }
 
-    .filter-posts {
+    /* .filter-posts {
         display: none;
-    }
+    } */
 }
 
 @media (max-width: 670px) {

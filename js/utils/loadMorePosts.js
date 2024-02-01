@@ -7,24 +7,92 @@ const blogPostContainer = document.querySelector(".blog-posts-container");
 let currentPage = 1;
 loadMoreButton.addEventListener("click", loadMorePosts);
 
-export async function loadMorePosts(){
+
+// export async function loadMorePosts(category){
+//     try {
+//         currentPage++;
+//         let morePosts = await getPosts(`${FENTY_EMBED_API_URL}&page=${currentPage}`, getSelectedCategory());
+//         console.log("New Post Data:", morePosts);
+    
+//         morePosts.forEach((post) => {
+//         const blogPostCard = createBlogPost(post);
+//         blogPostContainer.appendChild(blogPostCard);
+        
+//         });
+//     if(morePosts.length < 10) {
+//             loadMoreButton.innerHTML = "No more posts";
+//             loadMoreButton.classList.remove("load-more-link");
+//             loadMoreButton.removeEventListener("click", loadMorePosts);
+//         }
+//         selectedCategory = category;
+//     } catch (error) {
+//         console.log(error, "Error loading more posts");
+//     }
+//     }
+
+export async function loadMorePosts() {
     try {
         currentPage++;
-        let morePosts = await getPosts(`${FENTY_EMBED_API_URL}&page=${currentPage}`);
-        console.log("New Post Data:", morePosts);
-    
-        morePosts.forEach((post) => {
-        const blogPostCard = createBlogPost(post);
-        blogPostContainer.appendChild(blogPostCard);
-        
-        });
-    if(morePosts.length < 10) {
-            loadMoreButton.innerHTML = "No more posts";
-            loadMoreButton.classList.remove("load-more-link");
-            loadMoreButton.removeEventListener("click", loadMorePosts);
+        const selectedCategory = getSelectedCategory();
+        // let morePosts = await getPosts(`${FENTY_EMBED_API_URL}&page=${currentPage}&categories=${selectedCategory}`);
+        let morePosts;
+
+        if (selectedCategory !== "All") {
+            morePosts = await getPosts(`${FENTY_EMBED_API_URL}&page=${currentPage}&categories=${selectedCategory}`);
+        } else {
+            morePosts = await getPosts(`${FENTY_EMBED_API_URL}&page=${currentPage}`);
         }
-       
+        
+
+        console.log("New Post Data:", morePosts);
+        
+
+        if (morePosts.code === 'rest_post_invalid_page_number') {
+            console.error("Invalid page number:", morePosts.message);
+            disableLoadMoreButton();
+            return;
+        }
+
+        if (morePosts.length === 0) {
+            disableLoadMoreButton();
+        } else {
+            morePosts.forEach((post) => {
+                const blogPostCard = createBlogPost(post);
+                blogPostContainer.appendChild(blogPostCard);
+            });
+
+            if (morePosts.length < 10) {
+                disableLoadMoreButton();
+            }
+        }
     } catch (error) {
         console.log(error, "Error loading more posts");
     }
+}
+
+function disableLoadMoreButton() {
+    loadMoreButton.innerHTML = "No more posts";
+    loadMoreButton.classList.remove("load-more-link");
+    loadMoreButton.removeEventListener("click", loadMorePosts);
+}
+
+function enableLoadMoreButton() {
+    loadMoreButton.innerHTML = "Load more posts";
+    loadMoreButton.classList.add("load-more-link");
+    loadMoreButton.addEventListener("click", loadMorePosts);
+}
+
+let selectedCategory = "All";
+
+export function getSelectedCategory() {
+    return selectedCategory;
+}
+
+export function setSelectedCategory(category) {
+    if (selectedCategory !== category) {
+        selectedCategory = category;
+        currentPage = 1;
+
+        enableLoadMoreButton();
     }
+}

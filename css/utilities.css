@@ -160,26 +160,39 @@ a {
 
 /*   SIDEBAR   */
 
-.fenty-beauty-checkbox,
-.fenty-skin-checkbox,
-.savagex-checkbox,
-.music-checkbox,
-.collaboration-checkbox {
-    margin: 10px 7%;
+.filter-posts-by {
+    text-align: center;
+    margin: 7%;
+}
+
+#filter-posts-by {
+    padding: 6px;
+    border-radius: 6px;
+    margin-top: 5px;
+    width: 90%;
+    background-color: #35423a7a;
+    color: white;
+    text-align: center;
+}
+
+option {
+    background-color: rgba(173, 186, 178, 0.9);
+    ;
+    color: black;
 }
 
 .filter-posts:last-child {
     margin-bottom: 20px;
 }
 
-.searchbar {
+/* .searchbar {
     margin: 7%;
 }
 
 .searchbar input {
     padding: 6px;
     border-radius: 6px;
-}
+} */
 
 
 /* CONTACT PAGE */

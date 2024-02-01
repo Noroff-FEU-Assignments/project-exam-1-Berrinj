@@ -43,7 +43,6 @@ export async function getSinglePost() {
             hour: 'numeric',
             minute: 'numeric'
         });
-
    
 
     contentContainer.innerHTML = `<img class="main-post-img" src="${imageUrl}">
@@ -73,9 +72,8 @@ export async function getSinglePost() {
                                 // await example();
                                 await modalClick();
                                 // await modalImg();
-                                
+                                galleryClassList()
                                 // await imageSrc();
-        
                                 
     } catch(error) {
         main.innerHTML = `<div class="error">We are so sorry, an error occurred while loading this page.</div>`;
@@ -124,11 +122,15 @@ async function modalClick() {
     });
     }
 
-  
-
 }
   
-
+function galleryClassList() {
+    const gallery = document.querySelectorAll(".wp-block-image");
+    gallery.forEach((img) => {
+        img.classList.add("single-post-gallery");
+    })
+    
+}
 
 
 // export async function imageSrc() {

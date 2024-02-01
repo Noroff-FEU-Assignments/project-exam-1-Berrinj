@@ -2,6 +2,8 @@ import { FENTY_API_URL } from "../fetchAPI/baseAPI.js";
 import { FENTY_MEDIA_API_URL } from "../fetchAPI/mediaAPI.js";
 import { getMedia } from "./media.js";
 import { getPosts } from "./posts.js";
+import { FENTY_EMBED_API_URL } from "../fetchAPI/embedAPI.js";
+
 
 export function dataFromContentRendered(htmlContent) {
 const parser = new DOMParser();
@@ -15,6 +17,19 @@ return html;
 //     const data = dataFromContentRendered(post[0].content.rendered);
 //     // console.log(data);
 // }
+
+export async function example() {
+    const post = await getPosts(FENTY_EMBED_API_URL);
+    post.forEach((postdata)=> {
+    const data = dataFromContentRendered(postdata.content.rendered);
+    // console.log(data);
+    return data;
+   
+    // const galleryContainer = document.querySelector('.wp-block-gallery');
+    // console.log(galleryContainer)
+    // galleryContainer.slice(0, 3);
+    })
+}
 
 // export async function imageSrc() {
 //     try {

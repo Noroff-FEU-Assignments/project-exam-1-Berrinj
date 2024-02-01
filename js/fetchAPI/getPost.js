@@ -1,14 +1,17 @@
 import { FENTY_EMBED_API_URL } from "./embedAPI.js";
 import { getPosts } from "../utils/posts.js";
+import { getCategories } from "../utils/categories.js";
 import { renderMedia } from "../utils/renderMedia.js";
 import { createBlogPost } from "../utils/createBlogPost.js";
 import { renderNewestComments } from "../utils/renderComments.js";
 import { renderNewestBlogPosts } from "../utils/renderNewestBlogPosts.js";
 import { renderPostCarousel, handleLeftArrow, handleRightArrow } from "../utils/postCarousel.js";
-import { loadMorePosts } from "../utils/loadMorePosts.js";
+import { loadMorePosts, getSelectedCategory, setSelectedCategory } from "../utils/loadMorePosts.js";
 import { getComments } from "../utils/comments.js";
 import { FENTY_COMMENTS_API_URL } from "./commentsAPI.js";
-// import { renderCategories } from "../utils/renderCategories.js";
+import { FENTY_CATEGORY_API_URL } from "./categoriesAPI.js";
+import { dataFromContentRendered } from "../utils/reverseEngineerContentRendered.js";
+import { sortPosts } from "../components/filterPosts.js";
 
 const main = document.querySelector(`main`);
 let loadMoreButton = document.querySelector(".load-more");
@@ -102,21 +105,41 @@ let currentPage = 1;
 //     }
 //     }
 
-    loadMoreButton.addEventListener("click", loadMorePosts);
+    // loadMoreButton.addEventListener("click", loadMorePosts);
 
 
-export async function renderBlogPosts() {
+//     loadMoreButton.addEventListener("click", function () {
+//     const selectedCategory = getSelectedCategory();
+//     loadMorePosts(selectedCategory);
+// });
+
+    let selectSortBy = document.querySelector("#filter-posts-by");
+    selectSortBy.addEventListener("change", function() {
+    const selectedCategory = selectSortBy.value;
+    setSelectedCategory(selectedCategory);
+    sortPosts();
+    renderBlogPosts(selectedCategory);
+});
+
+export async function renderBlogPosts(selectedCategory = "All") {
     try{
     let blogPosts = await getPosts(`${FENTY_EMBED_API_URL}&page=${currentPage}`);
-    console.log("Post Data:", blogPosts);
+    // console.log("Post Data:", blogPosts);
+
+    blogPosts = blogPosts.filter((post) => {
+        const categoryIds = post.categories.map(String);
+        return selectedCategory === "All" || categoryIds.includes(selectedCategory);
+
+    });
+
+    console.log("Filtered Posts:", blogPosts);
+   
 
     blogPostContainer.innerHTML = "";
 
    blogPosts.forEach((post) => {
-    const blogPostCard = createBlogPost(post);
-    blogPostContainer.appendChild(blogPostCard);
-    console.log(post.id);
-    console.log(post.title);
+        const blogPostCard = createBlogPost(post);
+        blogPostContainer.appendChild(blogPostCard);
 });
  } catch (error) {
     console.log(error, "Sorry an error occurred");
@@ -124,6 +147,13 @@ export async function renderBlogPosts() {
 
 }
 
+export async function example() {
+    const post = await getPosts(FENTY_EMBED_API_URL);
+    post.forEach((postdata)=> {
+    const data = dataFromContentRendered(postdata.content.rendered);
+    console.log(data);   
+    })
+}
 
 // async function renderNewestBlogPosts() {
 //     let newPostList = await getPosts(FENTY_EMBED_API_URL);

@@ -8,7 +8,6 @@ export async function renderNewestBlogPosts() {
 
     newPostList.slice(0, 5).forEach((newPostItem) => {
     newestBlogPostSection.innerHTML += `<li><a href="single-post.html?id=${newPostItem.id}">${newPostItem.title.rendered}</a></li>`;
-    });
     
-   
+});
 }
