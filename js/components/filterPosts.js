@@ -1,34 +1,36 @@
 let selectHeading = document.querySelector(".news-and-content");
 let container = document.querySelector(".blog-content");
 let selectSortBy = document.querySelector("#filter-posts-by");
+let selectSortByMobile = document.querySelector("#filter-posts-by-mobile");
 
-export function sortPosts() {    
-    let selectedValue = selectSortBy.value;
+export function sortPosts(selectedValue) {    
+    // let selectedValue = selectSortBy.value;
+    // let selectedValueMobile = selectSortByMobile.value;
     console.log("Selected Value:", selectedValue);
     switch (selectedValue) {
         case "All":
-            selectHeading.textContent = "Alle innlegg";
+            selectHeading.textContent = "ALLE INNLEGG";
             break;
         case "4":
-            selectHeading.textContent = "Fenty Beauty innlegg";
+            selectHeading.textContent = "FENTY BEAUTY";
             break;
         case "3":
-            selectHeading.textContent = "Fenty Skin innlegg";
+            selectHeading.textContent = "FENTY SKIN";
             break;
         case "5":
-            selectHeading.textContent = "Savage x innlegg";
+            selectHeading.textContent = "SAVAGE X";
             break;
         case "6":
-            selectHeading.textContent = "Musikk innlegg";
+            selectHeading.textContent = "MUSIKK";
             break;
         case "9":
-            selectHeading.textContent = "Samarbeid innlegg";
+            selectHeading.textContent = "SAMARBEID";
             break;
         case "11":
-            selectHeading.textContent = "Prisutdelinger";
+            selectHeading.textContent = "PRISUTDELINGER";
             break;
         case "1":
-            selectHeading.textContent = "Ukategorisert";
+            selectHeading.textContent = "UKATEGORISERT";
             break;
         default:
             selectHeading.textContent = "Alle innlegg";

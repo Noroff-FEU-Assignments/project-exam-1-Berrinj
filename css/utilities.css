@@ -20,6 +20,10 @@ a {
     margin: 5px 10px;
 }
 
+.active {
+    color: #fff;
+}
+
 
 
 /*          GLOBAL PAGES STYLING    */
@@ -39,6 +43,18 @@ a {
     text-align: center;
 }
 
+.hamburger-menu {
+    display: flex;
+    height: inherit;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 10px;
+    display: none;
+}
+
+.fa-solid .fa-bars {
+    height: 50px;
+}
 
 /*      LOADER      */
 .loader {
@@ -52,7 +68,7 @@ a {
 
 
 /*      BUTTONS     */
-.filter-button {
+/* .filter-button {
     margin: 0 7%;
     background-color: var(--main-color-two);
     padding: 6px;
@@ -64,7 +80,7 @@ a {
 .filter-button:hover {
     background-color: var(--main-color-one);
     color: var(--main-color-two);
-}
+} */
 
 /* .main-menu>ul ul {
     display: none;
@@ -158,6 +174,51 @@ a {
     padding-left: 10px;
 } */
 
+/*              BLOG            */
+
+.filter-mobile {
+    display: none;
+}
+
+.filter-posts-mobile {
+    background-color: var(--main-color-three);
+    padding: 10px;
+    border-bottom: 1px solid var(--main-color-two);
+}
+
+.filter-posts-by-mobile {
+    color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.filter-posts-by-mobile .option-inputs {
+    width: 200px;
+}
+
+.filter-posts-by-mobile label {
+    font-size: 14px;
+}
+
+.load-more-section {
+    background-color: #000;
+    display: flex;
+    flex-wrap: wrap;
+    height: 80px;
+}
+
+.load-more {
+    color: #ADBAB2;
+    margin: auto auto;
+}
+
+.load-more-link:hover {
+    font-style: italic;
+    cursor: pointer;
+}
+
 /*   SIDEBAR   */
 
 .filter-posts-by {
@@ -165,7 +226,8 @@ a {
     margin: 7%;
 }
 
-#filter-posts-by {
+#filter-posts-by,
+#filter-posts-by-mobile {
     padding: 6px;
     border-radius: 6px;
     margin-top: 5px;
