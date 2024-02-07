@@ -7,6 +7,7 @@ const queryString = document.location.search;
 export const params = new URLSearchParams(queryString);
 export const categoryId = params.get("id");
 const categoryName = params.get("categoryName")
+document.title = `Fenty - Kategori - ${categoryName}`;
 
 console.log(categoryId, categoryName);
 
@@ -36,7 +37,6 @@ async function renderPostByCategoryCard() {
 }
 
 function createCategoryBlogPost(post) {
-    
     const blogPostCard = document.createElement(`div`);
     blogPostCard.dataset.postId = post.id;
     blogPostCard.classList.add(`blog-post-container`);
