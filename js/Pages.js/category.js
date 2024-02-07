@@ -3,6 +3,15 @@ import { FENTY_EMBED_API_URL } from "../fetchAPI/embedAPI.js";
 import { getPosts } from "../utils/posts.js";
 import { getCategories } from "../utils/categories.js";
 
+const nav = document.querySelector(".main-menu");
+const hamburgerMenu = document.querySelector(".hamburger-menu");
+
+hamburgerMenu.addEventListener("click", hamburgerMenuClick);
+
+export function hamburgerMenuClick() {
+    nav.classList.toggle("active")
+}
+
 const queryString = document.location.search;
 export const params = new URLSearchParams(queryString);
 export const categoryId = params.get("id");
