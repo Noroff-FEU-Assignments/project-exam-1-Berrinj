@@ -293,7 +293,7 @@ input[type="password"],
 textarea {
     width: 100%;
     padding: 12px 20px;
-    margin: 8px 0;
+    margin: 8px 0 3px 0;
     box-sizing: border-box;
 }
 
@@ -307,6 +307,12 @@ textarea {
     background-color: var(--main-color-one);
     border-radius: 6px;
     color: #fff;
+}
+
+.form-error {
+    color: darkred;
+    margin-bottom: 15px;
+    font-style: italic;
 }
 
 

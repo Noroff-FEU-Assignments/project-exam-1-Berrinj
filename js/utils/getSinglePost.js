@@ -34,6 +34,8 @@ export async function getSinglePost() {
     const categoriesList = await getCategories(`${FENTY_CATEGORY_API_URL}?post=${id}`);
         const categoryName = categoriesList.length > 0 ? categoriesList[0].name : 'Uncategorized';
         const categoryURL = categoriesList[0].link;
+        const categoryId = categoriesList.length > 0 ? categoriesList[0].id : `Undefined`;
+        console.log(categoryId);
 
         const formattedDate = new Date(result.date).toLocaleDateString('nb-NO', {
             day: 'numeric',
@@ -66,7 +68,7 @@ export async function getSinglePost() {
                                 </div>
                                 <div class="gallery"></div>
                                 <div class="category">
-                                    <p>Category: ${categoryName} </p>
+                                <p>Kategori: <a href="category.html?id=${categoryId}&categoryName=${categoryName}">${categoryName}</a></p>
                                 </div>
                                 <div id="go-back" onclick="history.back()">&larr; Gå tilbake</div>`;
                                 // await example();
@@ -80,9 +82,9 @@ export async function getSinglePost() {
         console.log(error, `Sorry, an error occurred`);
     }
 }
-{/* <div class="comments">
+/* <div class="comments">
                                         <p>5 comments</p>
-                                    </div> */}
+                                    </div> */
 // export async function example() {
 //     const post = await getPosts(`${FENTY_API_URL}/${id}/?_embed`);
 //     const data = dataFromContentRendered(post.content.rendered);
