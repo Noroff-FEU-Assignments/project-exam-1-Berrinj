@@ -113,13 +113,22 @@ let currentPage = 1;
 //     loadMorePosts(selectedCategory);
 // });
 
-    let selectSortBy = document.querySelector("#filter-posts-by");
-    selectSortBy.addEventListener("change", function() {
-    const selectedCategory = selectSortBy.value;
-    setSelectedCategory(selectedCategory);
-    sortPosts();
-    renderBlogPosts(selectedCategory);
+let selectSortBy = document.querySelector("#filter-posts-by");
+selectSortBy.addEventListener("change", function() {
+const selectedCategory = selectSortBy.value;
+setSelectedCategory(selectedCategory);
+sortPosts(selectedCategory);
+renderBlogPosts(selectedCategory);
 });
+
+let selectSortByMobile = document.querySelector("#filter-posts-by-mobile");
+selectSortByMobile.addEventListener("change", function() {
+const selectedCategoryMobile = selectSortByMobile.value;
+setSelectedCategory(selectedCategoryMobile);
+sortPosts(selectedCategoryMobile);
+renderBlogPosts(selectedCategoryMobile);
+});
+
 
 export async function renderBlogPosts(selectedCategory = "All") {
     try{
@@ -218,7 +227,14 @@ export async function example() {
 
 // rightArrow.addEventListener("click", handleRightArrow);
 // leftArrow.addEventListener("click", handleLeftArrow);
+const nav = document.querySelector(".main-menu");
+const hamburgerMenu = document.querySelector(".hamburger-menu");
 
+hamburgerMenu.addEventListener("click", hamburgerMenuClick);
+
+export function hamburgerMenuClick() {
+    nav.classList.toggle("active")
+}
 
 
 
