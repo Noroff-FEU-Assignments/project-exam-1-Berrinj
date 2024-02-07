@@ -7,6 +7,7 @@ import { getPosts } from "./posts.js";
 import { dataFromContentRendered } from "./reverseEngineerContentRendered.js";
 
 
+
 const queryString = document.location.search;
 export const params = new URLSearchParams(queryString);
 export const id = params.get("id");
@@ -44,10 +45,11 @@ export async function getSinglePost() {
             minute: 'numeric'
         });
    
+        // <p><a href="${categoryURL}">${categoryName}</p></a>
 
     contentContainer.innerHTML = `<img class="main-post-img" src="${imageUrl}">
                                 <div class="breadcrumbs">
-                                    <p><a href="index.html">Home</a></p> / <p><a href="${categoryURL}">${categoryName}</p></a> / <p>${result.title.rendered}</p>
+                                    <p><a href="index.html">Home</a></p> / <p>${result.title.rendered}</p>
                                 </div>
                                 <h1>${result.title.rendered}</h1>
                                 <div class="single-blog-post-info">
@@ -57,9 +59,7 @@ export async function getSinglePost() {
                                     <div class="dateandtime">
                                         <p>${formattedDate} ${formattedTime}</p>
                                     </div>
-                                    <div class="comments">
-                                        <p>5 comments</p>
-                                    </div>
+                                    
                                 </div>
                                 <div class="single-blog-post-text">
                                     ${result.content.rendered}
@@ -80,7 +80,9 @@ export async function getSinglePost() {
         console.log(error, `Sorry, an error occurred`);
     }
 }
-
+{/* <div class="comments">
+                                        <p>5 comments</p>
+                                    </div> */}
 // export async function example() {
 //     const post = await getPosts(`${FENTY_API_URL}/${id}/?_embed`);
 //     const data = dataFromContentRendered(post.content.rendered);

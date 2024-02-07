@@ -13,6 +13,7 @@
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/1664c6557b.js" crossorigin="anonymous"></script>
     <script type="module" src="js/fetchAPI/getPost.js"></script>
+    <script src="https://kit.fontawesome.com/1664c6557b.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -23,21 +24,24 @@
             <h1 class="site-name-placeholder">FENTY.NO</h1>
             <p>Få de aller siste nyhetene on Rihannas utgivelser</p>
         </div>
-        <nav class="main-menu">
-            <ul>
-                <li><a href="index.html">HJEM</a></li>
-                <li><a href="about.html">OM OSS</a></li>
-                <li class="sub-menu-start"><a href="#">VAREMERKER</a>
-                    <ul class="sub-menu">
-                        <li><a href="fenty-beauty.html">-FEИTY BEAUTY</a></li>
-                        <li><a href="fenty-skin.html">-FENTY SKIN</a></li>
-                        <li><a href="savagex.html">-SAVAGEx</a></li>
-                    </ul>
-                </li>
-                <li><a href="discography.html">MUSIKK</a></li>
-                <li><a href="contact.html">KONTAKT</a></li>
-            </ul>
-        </nav>
+        <div class="nav-container">
+            <nav class="main-menu">
+                <ul>
+                    <li class="active"><a href="index.html">HJEM</a></li>
+                    <li><a href="about.html">OM OSS</a></li>
+                    <li class="sub-menu-start"><a href="#">VAREMERKER</a>
+                        <ul class="sub-menu">
+                            <li><a href="fenty-beauty.html">-FEИTY BEAUTY</a></li>
+                            <li><a href="fenty-skin.html">-FENTY SKIN</a></li>
+                            <li><a href="savagex.html">-SAVAGEx</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="discography.html">MUSIKK</a></li>
+                    <li><a href="contact.html">KONTAKT</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger-menu"><i class="fa-solid fa-bars fa-2xl" style="color: #FFF;"></i></div>
+        </div>
     </head>
     <div class="site-info-container">
         <div class="site-info">
@@ -73,6 +77,25 @@
     <h1 class="news-and-content">NYHETER OG INNHOLD</h1>
 
     <main>
+        <div class="filter-mobile">
+            <div class="filter-posts-mobile">
+                <div class="filter-posts-by-mobile">
+                    <label for="filter-posts-by-mobile">Filtrer Innlegg:</label>
+                    <div class="option-inputs">
+                        <select name="filter-posts-by-mobile" id="filter-posts-by-mobile">
+                            <option value="All">Alle innlegg</option>
+                            <option value="4">Fenty Beauty</option>
+                            <option value="3">Fenty Skin</option>
+                            <option value="5">SavageX</option>
+                            <option value="6">Musikk</option>
+                            <option value="9">Samarbeid</option>
+                            <option value="11">Prisutdelinger</option>
+                            <option value="1">Ukategorisert</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="blog-and-sidebar">
             <div class="blog-content">
                 <div class="blog-posts-container">
@@ -230,27 +253,7 @@
                             </select>
                         </div>
                     </div>
-                    <!-- <div class="fenty-beauty-checkbox">
-                            <input type="checkbox" id="fenty-beauty-filter" name="fenty-beauty">
-                            <label for="fenty-beauty-filter">Fenty Beauty</label>
-                        </div>
-                        <div class="fenty-skin-checkbox">
-                            <input type="checkbox" id="fenty-skin-filter" name="fenty-skin">
-                            <label for="fenty-skin-filter">Fenty Skin</label>
-                        </div>
-                        <div class="savagex-checkbox">
-                            <input type="checkbox" id="savagex-filter" name="savagex">
-                            <label for="savagex-filter">Savagex</label>
-                        </div>
-                        <div class="music-checkbox">
-                            <input type="checkbox" id="music-filter" name="music">
-                            <label for="music-filter">Musikk</label>
-                        </div>
-                        <div class="collaboration-checkbox">
-                            <input type="checkbox" id="collaboration-filter" name="collaboration">
-                            <label for="collaboration-filter">Samarbeid</label>
-                        </div>
-                        <button class="filter-button">Filtrer</button> -->
+
                 </div>
                 <!-- </div> -->
                 <!-- <div class="searchbar">
@@ -258,7 +261,7 @@
                     <input type="search" id="searchbar" name="searchbar" placeholder="Søk i innlegg..">
                 </div> -->
                 <div class="newest-posts">
-                    <img src="/img/instagram-header.png">
+                    <!-- <img src="/img/instagram-header.png"> -->
                     <h2>Nyeste innlegg</h2>
                     <div class="horizontal-line"></div>
                     <div class="new-blog-post-list">
@@ -277,7 +280,7 @@
                     </div>
                 </div>
                 <div class="newest-comments">
-                    <img src="/img/instagram-header.png">
+                    <!-- <img src="/img/instagram-header.png"> -->
                     <h2>Siste kommentarer</h2>
                     <div class="horizontal-line"></div>
                     <ul>

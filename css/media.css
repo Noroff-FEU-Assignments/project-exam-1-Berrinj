@@ -34,6 +34,7 @@
         justify-content: space-around;
         flex-wrap: wrap;
         gap: 10px;
+        padding-top: 50px;
     }
 
     .searchbar {
@@ -44,9 +45,13 @@
         display: none;
     }
 
-    /* .filter-posts {
+    .filter-posts {
         display: none;
-    } */
+    }
+
+    .filter-mobile {
+        display: block;
+    }
 }
 
 @media (max-width: 670px) {
@@ -58,6 +63,7 @@
     .header-image p {
         display: flex;
     }
+
 
     /* .site-info-container {
         display: none;
@@ -79,6 +85,8 @@
 
     .new-posts-site-info {
         height: 180px;
+        background-color: #ADBAB2;
+
     }
 
     .new-blog-post-carousel {
@@ -87,6 +95,15 @@
 
     .carousel-img {
         height: 120px;
+    }
+
+    .carousel-text {
+        background-color: #35423ad5;
+        color: white;
+    }
+
+    .main-post-img {
+        height: 250px;
     }
 
     /* .new-posts-site-info {

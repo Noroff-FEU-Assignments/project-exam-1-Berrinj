@@ -41,7 +41,7 @@ export function createBlogPost(post) {
                                 <div class="blog-post-text">
                                 ${post.excerpt.rendered}
                                 </div>
-                                <div id="read-more"><a href="single-post.html?id=${post.id}">Gå til innlegg &rarr;</a></div>
+                                <div id="read-more"><a href="single-post.html?id=${post.id}">Les mer.. &rarr;</a></div>
                             </div>
                             <div class="blog-post-info">
                                 <div class="author">
