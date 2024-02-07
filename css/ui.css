@@ -112,16 +112,18 @@ h1.site-name-placeholder {
     text-align: center;
     color: #fff;
     font-weight: 200;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
 .center-site-info-header {
     font-weight: 200;
     margin-bottom: 0;
+    margin-top: 5px;
 }
 
 .welcome {
     margin-bottom: 0;
+    margin-top: 5px;
 }
 
 /* .center-site-info p {
