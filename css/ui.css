@@ -505,6 +505,11 @@ h1.site-name-placeholder {
     padding: 5px;
 }
 
+.single-blog-post-text a {
+    color: darkblue;
+    font-style: italic;
+}
+
 .single-post-gallery {
     cursor: pointer;
 }
