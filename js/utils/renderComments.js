@@ -11,7 +11,17 @@ export async function renderNewestComments() {
 
     const newestCommentSection = document.querySelector(".newest-comments ul");
     newCommentList.slice(0, 5).forEach((newComment) => {
-    newestCommentSection.innerHTML += `<li><a href="single-post.html?id=${newComment.post}">${newComment.author_name} har kommentert: ${newComment.content.rendered}</li></a>`;
+    newestCommentSection.innerHTML += `<a href="single-post.html?id=${newComment.post}"><li>${newComment.author_name} har kommentert: ${newComment.content.rendered}</li></a>`;
 
     });
     } 
+
+   export async function getCommentsNumber(post) {
+        const commentsData = await getComments(`${FENTY_COMMENTS_API_URL}?post=${post.id}`);
+        console.log(commentsData.length)
+        // commentsData.forEach((comment) => {
+        //    console.log(comment.author_name); 
+        // })
+        
+        }
+        

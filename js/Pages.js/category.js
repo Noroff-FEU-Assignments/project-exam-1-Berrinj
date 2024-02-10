@@ -23,14 +23,14 @@ console.log(categoryId, categoryName);
 const categoryNameHeader = document.querySelector(".news-and-content");
 categoryNameHeader.innerHTML += `${categoryName}`;
 
-async function renderCategoryPosts() {
-    const getCategorys = await getCategories(`${FENTY_CATEGORY_API_URL}`);
+// async function renderCategoryPosts() {
+//     const getCategorys = await getCategories(`${FENTY_CATEGORY_API_URL}`);
 
-    getCategorys.forEach((category) => {
-        console.log(category.id, category.name);
-    })
-}
-renderCategoryPosts() 
+//     getCategorys.forEach((category) => {
+//         console.log(category.id, category.name);
+//     })
+// }
+// renderCategoryPosts() 
 
 const blogPostContainer = document.querySelector(".blog-posts-category-container");
 
@@ -57,7 +57,7 @@ function createCategoryBlogPost(post) {
     blogPostCard.innerHTML += `<a href="single-post.html?id=${post.id}">
                                 <img src="${imageUrl}" class="category-img">
                                 <h2>${post.title.rendered}</h2>
-                                <p>${truncateText(post.excerpt.rendered, textMaxLength)}</p>
+                                ${truncateText(post.excerpt.rendered, textMaxLength)}
                                 </a>`;
         console.log(post.title.rendered);
 

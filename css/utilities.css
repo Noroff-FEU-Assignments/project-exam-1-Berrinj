@@ -17,7 +17,8 @@ a {
 
 .horizontal-line {
     border-bottom: 1px dotted white;
-    margin: 5px 10px;
+    margin: 10px auto;
+    max-width: 215px;
 }
 
 .active {
@@ -377,15 +378,32 @@ textarea {
 /* FOOTER   */
 footer {
     background-color: var(--main-color-one);
-    height: 250px;
-    display: flex;
-    justify-content: center;
-    max-width: 100vW;
+    height: fit-content;
+    max-width: 100vw;
 
+
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    min-height: 250px;
+    color: var(--main-color-two);
+    padding: 10px 5%;
+    max-width: 1000px;
+    margin: auto;
 }
 
 .left-footer {
     width: 20%;
+    min-width: 150px;
+}
+
+.left-footer li:hover {
+    color: #fff;
+    cursor: pointer;
 }
 
 .center-footer {
@@ -398,11 +416,29 @@ footer {
 
 .right-footer {
     width: 20%;
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
 }
+
+.right-footer p {
+    margin-top: 0;
+}
+
+.social-media {
+    display: flex;
+    gap: 20px;
+}
+
+.social-media i:hover {
+    color: #fff;
+}
+
 
 .copyright {
     text-align: center;
-    color: white;
 }
 
 

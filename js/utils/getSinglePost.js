@@ -119,26 +119,54 @@ function openModal(src, alt) {
 
 
 
+// async function modalClick() {
+//     const imagesAPI = await getPosts(`${FENTY_API_URL}/${id}/?_embed`);
+//     const imgData = dataFromContentRendered(imagesAPI.content.rendered);
+//     console.log(imgData);
+
+//     const galleryContainer = document.querySelector('.wp-block-gallery');
+//     const singleImage = document.querySelector(`.wp-block-image`);
+
+//     if(galleryContainer) {
+//           galleryContainer.addEventListener('click', (event) => {
+//         const img = event.target.closest('img');
+
+//         if (img && event.target === img) {
+
+//             const src = img.getAttribute('src');
+//             const alt = img.getAttribute('alt');
+//             openModal(src, alt);
+//         }
+//     });
+//     }
+
+// }
+
 async function modalClick() {
     const imagesAPI = await getPosts(`${FENTY_API_URL}/${id}/?_embed`);
     const imgData = dataFromContentRendered(imagesAPI.content.rendered);
     console.log(imgData);
 
     const galleryContainer = document.querySelector('.wp-block-gallery');
+    const singleImage = document.querySelector(`.wp-block-image`);
 
-    if(galleryContainer) {
-          galleryContainer.addEventListener('click', (event) => {
+    const handleClick = (event) => {
         const img = event.target.closest('img');
 
         if (img && event.target === img) {
-
             const src = img.getAttribute('src');
             const alt = img.getAttribute('alt');
             openModal(src, alt);
         }
-    });
+    };
+
+    if (galleryContainer) {
+        galleryContainer.addEventListener('click', handleClick);
     }
 
+    if (singleImage) {
+        singleImage.addEventListener('click', handleClick);
+    }
 }
   
 function galleryClassList() {
@@ -157,11 +185,12 @@ async function displayComments() {
     const comments = await getComments(`${FENTY_COMMENTS_API_URL}?post=${id}`);
     console.log(comments);
 
-  
-
     if(comments.length === 0) {
             noComment.innerHTML = "Ingen kommentarer, vær den første!";
         }
+
+        const commentsHeader = document.querySelector(".comments h4");
+        commentsHeader.innerHTML += ` (${comments.length})`;
 
     comments.forEach((comment) => {
 

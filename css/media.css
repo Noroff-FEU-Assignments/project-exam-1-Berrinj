@@ -111,6 +111,25 @@
         height: 250px;
     }
 
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .right-footer {
+        order: 1;
+        align-items: center;
+    }
+
+    .center-footer {
+        order: 3;
+    }
+
+    .left-footer {
+        order: 2;
+        text-align: center;
+    }
+
 
     /* .new-posts-site-info {
         display: none;
@@ -135,6 +154,10 @@
         display: none;
     }
 
+    .nav-container {
+        height: 40px;
+    }
+
     .main-menu {
         position: absolute;
         width: 100%;
@@ -145,7 +168,7 @@
 
     .main-menu.active {
         right: 0;
-        margin-top: 60px;
+        margin-top: 40px;
         display: flex;
     }
 
@@ -154,6 +177,7 @@
         flex-direction: column;
         margin: 0;
         width: 100%;
+        line-height: 40px;
     }
 
     .main-menu a {
@@ -218,5 +242,9 @@
     .wp-block-image img {
         width: 100px;
         height: 100px;
+    }
+
+    .blog-post-info p {
+        font-size: 0.9rem;
     }
 }
