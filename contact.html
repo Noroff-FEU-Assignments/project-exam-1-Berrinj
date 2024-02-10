@@ -17,6 +17,7 @@
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/1664c6557b.js" crossorigin="anonymous"></script>
     <script type="module" src="js/Pages.js/contact.js"></script>
+    <script type="module" src="js/components/mainMenu.js"></script>
     <!-- Hotjar Tracking Code for Fenty Norge -->
     <script>
         (function (h, o, t, j, a, r) {
@@ -45,9 +46,10 @@
                 <ul>
                     <li><a href="index.html">HJEM</a></li>
                     <li><a href="about.html">OM OSS</a></li>
-                    <li class="sub-menu-start"><a href="#">VAREMERKER</a>
+                    <li class="sub-menu-start">
+                        <a href="#" aria-haspopup="true" aria-expanded="false">VAREMERKER</a>
                         <ul class="sub-menu">
-                            <li><a href="fenty-beauty.html">-FEИTY BEAUTY</a></li>
+                            <li><a href="fenty-beauty.html" tabindex="0">-FEИTY BEAUTY</a></li>
                             <li><a href="fenty-skin.html">-FENTY SKIN</a></li>
                             <li><a href="savagex.html">-SAVAGEx</a></li>
                         </ul>
@@ -71,7 +73,7 @@
             </div>
             <div class="contact-form">
                 <form id="form" action="/" novalidate>
-                    <fieldset>
+                    <fieldset aria-labelledby="form-legend">
                         <legend>Fyll ut skjemaet</legend>
                         <div class="input-control">
                             <label for="name">Navn:*</label>
@@ -95,7 +97,7 @@
                         </div>
                         <div class="submit-form">
                             <label for="submit">Send inn kontaktskjema:</label>
-                            <button type="submit" id="submit">Send</button>
+                            <button type="submit" id="submit">Send inn</button>
                         </div>
                     </fieldset>
                 </form>

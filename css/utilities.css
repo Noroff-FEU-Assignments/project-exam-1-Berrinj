@@ -87,11 +87,13 @@ a {
     display: none;
 } 
 */
-.main-menu>ul>li.sub-menu-start>ul.sub-menu {
+ul.sub-menu {
     display: none;
+    position: absolute;
 }
 
-.main-menu>ul>li.sub-menu-start:hover>ul.sub-menu {
+li.sub-menu-start:hover>ul.sub-menu,
+li.sub-menu-start.open .sub-menu {
     display: block;
     top: 60px;
 }
@@ -260,6 +262,10 @@ option {
 
 /* CONTACT PAGE */
 
+.contact-form {
+    margin: 10px;
+}
+
 fieldset {
     max-width: 465px;
     margin: auto;
@@ -353,7 +359,7 @@ textarea {
     font-weight: 600;
 }
 
-#name {
+#username {
     margin-bottom: 20px;
     border-radius: 6px;
 }
@@ -447,8 +453,8 @@ footer {
     background-image: linear-gradient(45deg,
             rgb(112, 106, 112),
             rgb(22, 21, 22),
-            rgb(8, 54, 19),
-            rgb(7, 75, 7));
+            rgb(7, 29, 12),
+            rgb(41, 41, 41));
     opacity: 0.75;
 }
 

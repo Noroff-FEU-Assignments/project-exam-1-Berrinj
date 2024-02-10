@@ -194,13 +194,15 @@
         flex-wrap: wrap;
     }
 
-    .sub-menu {
+
+    ul.sub-menu {
         position: relative;
         font-size: 0.9rem;
         padding: 0;
+        display: none;
     }
 
-    .sub-menu li {
+    ul.sub-menu li {
         line-height: 40px;
     }
 
@@ -208,11 +210,15 @@
         border-bottom: none;
     }
 
-    .main-menu>ul>li.sub-menu-start>ul.sub-menu {
+    ul.sub-menu {
         display: flex;
     }
 
-    .main-menu>ul>li.sub-menu-start:hover>ul.sub-menu {
+    ul.sub-menu {
+        top: 0;
+    }
+
+    li.sub-menu-start:hover>ul.sub-menu {
         top: 0;
     }
 

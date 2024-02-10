@@ -11,6 +11,7 @@
     <title>Fenty.no - blog post</title>
     <link rel="stylesheet" href="/css/index.css">
     <script type="module" src="/js/Pages.js/singlePost.js"></script>
+    <script type="module" src="js/components/mainMenu.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -45,7 +46,7 @@
                 <ul>
                     <li><a href="index.html">HJEM</a></li>
                     <li><a href="about.html">OM OSS</a></li>
-                    <li class="sub-menu-start"><a href="#">VAREMERKER</a>
+                    <li class="sub-menu-start"><a href="#" aria-haspopup="true" aria-expanded="false">VAREMERKER</a>
                         <ul class="sub-menu">
                             <li><a href="fenty-beauty.html">-FEИTY BEAUTY</a></li>
                             <li><a href="fenty-skin.html">-FENTY SKIN</a></li>
@@ -65,14 +66,12 @@
                 <div class="loader">Loading..</div>
             </div>
             <dialog>
-                <!-- <button autofocus>Close</button>
-                <p>This modal dialog has a groovy backdrop!</p> -->
             </dialog>
             <section id="comment-section">
                 <h3>Legg igjen en kommentar:</h3>
                 <form id="comment-form" action="/" novalidate>
-                    <label for="name">Navn:</label>
-                    <input type="text" id="name" name="name" required>
+                    <label for="username">Navn:</label>
+                    <input type="text" id="username" name="username" required>
                     <label for="comment">Kommentar:</label>
                     <textarea id="comment" name="comment" placeholder="I don't work yet, sorry" required></textarea>
                     <button type="submit" id="comment-button">Post kommentar</button>
