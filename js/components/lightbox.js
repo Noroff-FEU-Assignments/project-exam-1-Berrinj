@@ -11,14 +11,14 @@
 // img.addEventListener("click", onLightboxClick);
 // return img;
 // }
-export function openDialog() {
-    const dialog = document.querySelector("dialog");
-    dialog.innerHTML = "";
-    const fullSizeImage = document.createElement("img");
-    fullSizeImage.src = src;
-    fullSizeImage.alt = alt;
+// export function openDialog() {
+//     const dialog = document.querySelector("dialog");
+//     dialog.innerHTML = "";
+//     const fullSizeImage = document.createElement("img");
+//     fullSizeImage.src = src;
+//     fullSizeImage.alt = alt;
 
-    // Append the img element to the dialog
-    dialog.appendChild(fullSizeImage);
-    dialog.showModal();
-}
+//     // Append the img element to the dialog
+//     dialog.appendChild(fullSizeImage);
+//     dialog.showModal();
+// }

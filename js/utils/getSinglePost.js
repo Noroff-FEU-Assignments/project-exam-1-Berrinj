@@ -2,9 +2,11 @@ import { FENTY_CATEGORY_API_URL } from "../fetchAPI/categoriesAPI.js";
 import { FENTY_MEDIA_API_URL } from "../fetchAPI/mediaAPI.js";
 import { getCategories } from "../utils/categories.js";
 import { FENTY_EMBED_API_URL } from "../fetchAPI/embedAPI.js";
+import { FENTY_COMMENTS_API_URL } from "../fetchAPI/commentsAPI.js";
 import { FENTY_API_URL } from "../fetchAPI/baseAPI.js";
 import { getPosts } from "./posts.js";
 import { dataFromContentRendered } from "./reverseEngineerContentRendered.js";
+import { getComments } from "./comments.js";
 
 
 
@@ -56,10 +58,10 @@ export async function getSinglePost() {
                                 <h1>${result.title.rendered}</h1>
                                 <div class="single-blog-post-info">
                                     <div class="author">
-                                        <p>Posted by: ${result._embedded.author[0].name}</p>
+                                        <p><i class="fa-solid fa-pencil fa-2xs" style="color: #35423A;"></i> ${result._embedded.author[0].name}</p>
                                     </div>
                                     <div class="dateandtime">
-                                        <p>${formattedDate} ${formattedTime}</p>
+                                        <p><i class="fa-regular fa-clock fa-2xs" style="color: #35423A;"></i> ${formattedDate} ${formattedTime}</p>
                                     </div>
                                     
                                 </div>
@@ -90,6 +92,7 @@ export async function getSinglePost() {
 //     const data = dataFromContentRendered(post.content.rendered);
 //     console.log(data);
 // }
+
 function openModal(src, alt) {
     console.log('Clicked image:', src);
     console.log('Alt text:', alt);
@@ -101,10 +104,20 @@ function openModal(src, alt) {
 
     dialog.appendChild(fullSizeImage);
     dialog.showModal();
+
+    dialog.addEventListener("click", (event) => {
+        if (event.target === dialog) {
+            dialog.close();
+        }
+    });
+
     fullSizeImage.addEventListener("click", () => {
         dialog.close();
       });
+      
 }
+
+
 
 async function modalClick() {
     const imagesAPI = await getPosts(`${FENTY_API_URL}/${id}/?_embed`);
@@ -136,6 +149,44 @@ function galleryClassList() {
     
 }
 
+const commentContent = document.querySelector(".comment-content");
+const noComment = document.querySelector(".no-comments");
+
+
+async function displayComments() {
+    const comments = await getComments(`${FENTY_COMMENTS_API_URL}?post=${id}`);
+    console.log(comments);
+
+  
+
+    if(comments.length === 0) {
+            noComment.innerHTML = "Ingen kommentarer, vær den første!";
+        }
+
+    comments.forEach((comment) => {
+
+          const formattedDate = new Date(comment.date).toLocaleDateString('nb-NO', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    });
+        const formattedTime = new Date(comment.date).toLocaleTimeString('nb-NO', {
+        hour: 'numeric',
+        minute: 'numeric'
+    });
+
+        commentContent.innerHTML += `<div class="comment-card">
+                                    <div class="commenter-name">${comment.author_name}</div>
+                                    <div class="comment-posted">${comment.content.rendered}</div>
+                                    <div class="comment-date">${formattedDate} ${formattedTime}</div
+                                    </div>`
+                                    
+        console.log(comment.author_name, comment.content.rendered);
+        
+    })
+}
+
+displayComments();
 
 // export async function imageSrc() {
 //     try {

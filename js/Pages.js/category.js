@@ -59,7 +59,6 @@ function createCategoryBlogPost(post) {
                                 <h2>${post.title.rendered}</h2>
                                 <p>${truncateText(post.excerpt.rendered, textMaxLength)}</p>
                                 </a>`;
-        // headerImg.innerHTML = `${imageUrl}`;
         console.log(post.title.rendered);
 
         function truncateText(text, maxLength) {

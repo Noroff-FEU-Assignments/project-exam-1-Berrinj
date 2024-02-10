@@ -67,6 +67,22 @@
                 <!-- <button autofocus>Close</button>
                 <p>This modal dialog has a groovy backdrop!</p> -->
             </dialog>
+            <section id="comment-section">
+                <h3>Legg igjen en kommentar:</h3>
+                <form id="comment-form" action="/" novalidate>
+                    <label for="name">Navn:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="comment">Kommentar:</label>
+                    <textarea id="comment" name="comment" placeholder="I don't work yet, sorry" required></textarea>
+                    <button type="submit" id="comment-button">Post kommentar</button>
+                </form>
+                <div class="comments">
+                    <h4>Kommentarer:</h4>
+                    <div class="comment-content">
+                        <p class="no-comments"></p>
+                    </div>
+                </div>
+            </section>
         </div>
 
 

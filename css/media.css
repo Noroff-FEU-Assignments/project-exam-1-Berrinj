@@ -52,6 +52,11 @@
     .filter-mobile {
         display: block;
     }
+
+    .wp-block-gallery figure {
+        margin-inline-start: 20px;
+        margin-inline-end: 20px;
+    }
 }
 
 @media (max-width: 670px) {
@@ -105,6 +110,7 @@
     .main-post-img {
         height: 250px;
     }
+
 
     /* .new-posts-site-info {
         display: none;
@@ -204,4 +210,13 @@
         height: 200px;
     }
 
+    .wp-block-gallery figure {
+        margin-inline-start: 10px;
+        margin-inline-end: 10px;
+    }
+
+    .wp-block-image img {
+        width: 100px;
+        height: 100px;
+    }
 }
