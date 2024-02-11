@@ -117,31 +117,6 @@ function openModal(src, alt) {
       
 }
 
-
-
-// async function modalClick() {
-//     const imagesAPI = await getPosts(`${FENTY_API_URL}/${id}/?_embed`);
-//     const imgData = dataFromContentRendered(imagesAPI.content.rendered);
-//     console.log(imgData);
-
-//     const galleryContainer = document.querySelector('.wp-block-gallery');
-//     const singleImage = document.querySelector(`.wp-block-image`);
-
-//     if(galleryContainer) {
-//           galleryContainer.addEventListener('click', (event) => {
-//         const img = event.target.closest('img');
-
-//         if (img && event.target === img) {
-
-//             const src = img.getAttribute('src');
-//             const alt = img.getAttribute('alt');
-//             openModal(src, alt);
-//         }
-//     });
-//     }
-
-// }
-
 async function modalClick() {
     const imagesAPI = await getPosts(`${FENTY_API_URL}/${id}/?_embed`);
     const imgData = dataFromContentRendered(imagesAPI.content.rendered);
@@ -177,8 +152,111 @@ function galleryClassList() {
     
 }
 
+const commentForm = document.getElementById("comment-form");
+document.addEventListener("DOMContentLoaded", function() {
+    
+    commentForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        handleCommentSubmitted();
+    })
+})
+
+function handleCommentSubmitted() {
+    const username = document.querySelector("#username");
+    const comment = document.querySelector("#comment");
+
+    if (validateInputs(username, comment)) {
+        const usernameValue = document.querySelector("#username").value;
+        const commentValue = document.querySelector("#comment").value;
+        const commentData = {
+            post: id,
+            author_name: usernameValue,
+            content: commentValue,
+            author_email: `placeholderemail@example.no`,
+        };
+        commentForm.reset();
+        console.log(commentData);
+        submitCommentToWordPress(commentData);
+    }
+}
+
+const setError = (element, message) => {
+    const inputControl = element.parentElement;
+    const errorMessage = inputControl.querySelector(".form-error");
+    // inputControl.classList.add("form-error");
+    // inputControl.classList.remove("success");
+    errorMessage.innerText = message;
+}
+
+const setSuccess = element => {
+    const inputControl = element.parentElement;
+    const errorMessage = inputControl.querySelector(".form-error");
+
+    errorMessage.innerText = "";
+    inputControl.classList.add("success");
+    inputControl.classList.remove("form-error");
+}
+
+function validateInputs(username, comment) {
+    let isValid = true;
+    const usernameTrim = username.value.trim();
+    const commentTrim = comment.value.trim();
+
+   if (usernameTrim.length < 3) {
+        setError(username, "Navnet må være på 3 eller flere karakterer");
+        isValid = false;
+    } else {
+        setSuccess(username);
+    }
+    if (commentTrim.length < 4) {
+        setError(comment, "Kommentaren kan ikke være under 4 karakterer");
+        isValid = false;
+    } else {
+        setSuccess(comment);
+    }
+    return isValid;
+};
+
 const commentContent = document.querySelector(".comment-content");
 const noComment = document.querySelector(".no-comments");
+
+async function fetchCommentsAndUpdateUI() {
+
+    const comments = await getComments(`${FENTY_COMMENTS_API_URL}?post=${id}`);
+    console.log(comments);
+
+    updateCommentSection(comments);
+}
+
+function updateCommentSection(comments) {
+    commentContent.innerHTML = '';
+
+    if (comments.length === 0) {
+        noComment.innerHTML = "Ingen kommentarer, vær den første!";
+    }
+
+    const commentsHeader = document.querySelector(".comments h4");
+    commentsHeader.innerHTML = `Kommentarer (${comments.length})`;
+
+    comments.forEach((comment) => {
+        const formattedDate = new Date(comment.date).toLocaleDateString('nb-NO', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        });
+        const formattedTime = new Date(comment.date).toLocaleTimeString('nb-NO', {
+            hour: 'numeric',
+            minute: 'numeric'
+        });
+
+        commentContent.innerHTML += `<div class="comment-card">
+                                    <img class="commenter-avatar" src="${comment.author_avatar_urls[48]}">
+                                    <div class="commenter-name">${comment.author_name}</div>
+                                    <div class="comment-posted">${comment.content.rendered}</div>
+                                    <div class="comment-date">${formattedDate} ${formattedTime}</div>
+                                </div>`;
+    });
+}
 
 
 async function displayComments() {
@@ -205,10 +283,11 @@ async function displayComments() {
     });
 
         commentContent.innerHTML += `<div class="comment-card">
+                                    <img class="commenter-avatar" src="${comment.author_avatar_urls[48]}">
                                     <div class="commenter-name">${comment.author_name}</div>
                                     <div class="comment-posted">${comment.content.rendered}</div>
                                     <div class="comment-date">${formattedDate} ${formattedTime}</div
-                                    </div>`
+                                    </div>`                          
                                     
         console.log(comment.author_name, comment.content.rendered);
         
@@ -217,31 +296,33 @@ async function displayComments() {
 
 displayComments();
 
-// export async function imageSrc() {
-//     try {
-//         const media = await getMedia(`${FENTY_MEDIA_API_URL}?parent=${id}`);
-//         if (media && media.length > 0) {
+const endpointURL = `https://fenty.berremarte.no/wp-json/wp/v2/comments?post=${id}`;
+const commentOnHold = document.querySelector(".comment-on-hold");
 
-//             media.forEach((item) => {
-//                 if (item.description && item.description.rendered) {
-//                     const data = dataFromContentRendered(item.description.rendered);
-//                     const images = data.querySelectorAll("a");
+function submitCommentToWordPress(commentData) {
 
-//                     images.forEach((image) => {
-//                         const gallery = document.querySelector(".gallery")
-//                         gallery.innerHTML += `<div class="gallery-image thumbnail"><img src="${image.href}"</div>`
-                        
-//                         console.log(image.href)
-//                     });
-//                 } else {
-//                     console.error("Media not found for item:", item);
-//                 }
-//             });
-//         } else {
-//             console.error("No media found.");
-//         }
-        
-//     } catch (error) {
-//         console.error("Error fetching media:", error);
-//     }
-// }
+    fetch(endpointURL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(commentData),
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Comment submitted successfully:', data);
+            console.log(data.status);
+
+            if (data.status === `hold` ) {
+                commentOnHold.innerHTML = `Kommentaren din er til godkjenning.`;
+            } else {
+                commentOnHold.innerHTML = "";
+            }
+            fetchCommentsAndUpdateUI();
+        })
+        .catch(error => {
+            console.error('Error submitting comment:', error);
+        });
+}
+
+/* Credit to https://www.tetchi.ca/how-to-post-comments-using-the-wordpress-rest-api for helping me on the way to a working comment section! */

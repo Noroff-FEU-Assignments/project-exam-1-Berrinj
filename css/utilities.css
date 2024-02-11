@@ -336,7 +336,7 @@ textarea {
 } */
 
 .comment-card {
-    margin-bottom: 50px;
+    margin-bottom: 25px;
     padding: 10px;
     background-color: #adbab234;
     border-radius: 6px;
@@ -352,6 +352,7 @@ textarea {
 
 #comment-section {
     max-width: 90%;
+    min-width: 60%;
     margin: auto;
 }
 
@@ -360,7 +361,6 @@ textarea {
 }
 
 #username {
-    margin-bottom: 20px;
     border-radius: 6px;
 }
 
@@ -378,6 +378,12 @@ textarea {
 
 .no-comments {
     font-style: italic;
+}
+
+.comment-on-hold {
+    color: red;
+    font-style: italic;
+    margin-top: 20px;
 }
 
 

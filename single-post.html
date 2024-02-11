@@ -69,12 +69,20 @@
             </dialog>
             <section id="comment-section">
                 <h3>Legg igjen en kommentar:</h3>
-                <form id="comment-form" action="/" novalidate>
-                    <label for="username">Navn:</label>
-                    <input type="text" id="username" name="username" required>
-                    <label for="comment">Kommentar:</label>
-                    <textarea id="comment" name="comment" placeholder="I don't work yet, sorry" required></textarea>
+                <form id="comment-form" novalidate>
+                    <div class="input-control">
+                        <label for="username">Navn:</label>
+                        <input type="text" id="username" name="username" required>
+                        <div class="form-error"></div>
+                    </div>
+                    <div class="input-control">
+                        <label for="comment">Kommentar:</label>
+                        <textarea id="comment" name="comment"
+                            placeholder="Skriv kommentaren din her (minimum 4 karakterer)" required></textarea>
+                        <div class="form-error"></div>
+                    </div>
                     <button type="submit" id="comment-button">Post kommentar</button>
+                    <div class="comment-on-hold"></div>
                 </form>
                 <div class="comments">
                     <h4>Kommentarer:</h4>
