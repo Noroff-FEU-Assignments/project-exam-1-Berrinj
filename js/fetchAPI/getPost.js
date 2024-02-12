@@ -130,30 +130,52 @@ renderBlogPosts(selectedCategoryMobile);
 });
 
 
-export async function renderBlogPosts(selectedCategory = "All") {
-    try{
-    let blogPosts = await getPosts(`${FENTY_EMBED_API_URL}&page=${currentPage}`);
-    // console.log("Post Data:", blogPosts);
+// export async function renderBlogPosts(selectedCategory = "All") {
+//     try{
+//     let blogPosts = await getPosts(`${FENTY_EMBED_API_URL}&page=${currentPage}`);
+//     // console.log("Post Data:", blogPosts);
 
-    blogPosts = blogPosts.filter((post) => {
-        const categoryIds = post.categories.map(String);
-        return selectedCategory === "All" || categoryIds.includes(selectedCategory);
+//     blogPosts = blogPosts.filter((post) => {
+//         const categoryIds = post.categories.map(String);
+//         return selectedCategory === "All" || categoryIds.includes(selectedCategory);
 
-    });
+//     });
 
-    console.log("Filtered Posts:", blogPosts);
+//     console.log("Filtered Posts:", blogPosts);
    
 
-    blogPostContainer.innerHTML = "";
+//     blogPostContainer.innerHTML = "";
 
-   blogPosts.forEach((post) => {
-        const blogPostCard = createBlogPost(post);
-        blogPostContainer.appendChild(blogPostCard);
-});
- } catch (error) {
-    console.log(error, "Sorry an error occurred");
- }
+//    blogPosts.forEach((post) => {
+//         const blogPostCard = createBlogPost(post);
+//         blogPostContainer.appendChild(blogPostCard);
+// });
+//  } catch (error) {
+//     console.log(error, "Sorry an error occurred");
+//  }
 
+// }
+
+export async function renderBlogPosts(selectedCategory = "All") {
+    try {
+        let blogPosts;
+        if (selectedCategory === "All") {
+            blogPosts = await getPosts(`${FENTY_EMBED_API_URL}&page=${currentPage}`);
+            console.log("All Post Data:", blogPosts);
+        } else {
+            blogPosts = await getPosts(`${FENTY_EMBED_API_URL}&categories=${selectedCategory}`);
+            console.log("Filtered Posts:", blogPosts);
+        }
+
+        blogPostContainer.innerHTML = "";
+
+        blogPosts.forEach((post) => {
+            const blogPostCard = createBlogPost(post);
+            blogPostContainer.appendChild(blogPostCard);
+        });
+    } catch (error) {
+        console.log(error, "Sorry, an error occurred");
+    }
 }
 
 export async function example() {

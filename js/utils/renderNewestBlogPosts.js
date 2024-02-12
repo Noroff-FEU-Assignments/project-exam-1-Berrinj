@@ -10,7 +10,8 @@ export async function renderNewestBlogPosts() {
 
     newPostList.slice(0, 8).forEach((newPostItem) => {
         count++;
-    newestBlogPostSection.innerHTML += `<li><a href="single-post.html?id=${newPostItem.id}">${count}. ${newPostItem.title.rendered}</a></li>`;
+    newestBlogPostSection.innerHTML += `<a href="single-post.html?id=${newPostItem.id}"><li>${newPostItem.title.rendered}<p class="go-to-post">Les mer..</p></li></a>`;
     
 });
 }
+// ${count}. 

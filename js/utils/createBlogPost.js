@@ -7,7 +7,7 @@ import { FENTY_COMMENTS_API_URL } from "../fetchAPI/commentsAPI.js";
 export function createBlogPost(post) {
 
     try {
-
+  
     const blogPostCard = document.createElement(`div`);
     blogPostCard.dataset.postId = post.id;
     blogPostCard.classList.add(`blog-post`);
@@ -27,6 +27,9 @@ export function createBlogPost(post) {
 async function getCommentsNumber() {
     try {
         const commentsData = await getComments(`${FENTY_COMMENTS_API_URL}?post=${post.id}`);
+        const categoriesList = await getCategories(`${FENTY_CATEGORY_API_URL}?post=${post.id}`);
+        const categoryName = categoriesList.length > 0 ? categoriesList[0].name : 'Uncategorized';
+        const categoryId = categoriesList.length > 0 ? categoriesList[0].id : `Undefined`;
 
         const main = document.querySelector("main");
         if (main) {
@@ -52,7 +55,7 @@ async function getCommentsNumber() {
                                 </div>
                                 <div class="blog-post-info">
                                     <div class="author">
-                                        <p>Postet av: ${post._embedded.author[0].name}</p>
+                                        <p>Postet av: ${post._embedded.author[0].name} i <a href="category.html?id=${categoryId}&categoryName=${categoryName}">${categoryName}</a></p>
                                     </div>
                                     <div class="dateandtime">
                                         <p>Kommentarer: ${commentsData.length}</p>

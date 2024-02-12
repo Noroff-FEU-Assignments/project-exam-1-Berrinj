@@ -1,20 +1,23 @@
 import { getComments } from "./comments.js";
 import { FENTY_COMMENTS_API_URL } from "../fetchAPI/commentsAPI.js";
+import { getPostInfo } from "./getPostInfo.js";
 
-// async function renderComments() {
-//     const commentData = await getComments(FENTY_COMMENTS_API_URL);
-//     const commentId = commentData.id;
-//     console.log(commentId);
-// }
 export async function renderNewestComments() {
-    const newCommentList = await getComments(FENTY_COMMENTS_API_URL);
+    try {
+      const newCommentList = await getComments(FENTY_COMMENTS_API_URL);
+  
+      const newestCommentSection = document.querySelector(".newest-comments ul");
+  
+      for (const newComment of newCommentList.slice(0, 5)) {
+        const postInfo = await getPostInfo(newComment.post);
+        newestCommentSection.innerHTML += `<a href="single-post.html?id=${newComment.post}"><li><p class="comment-name">${newComment.author_name}</p> <p class="comment-info">har kommentert på ${postInfo.title.rendered}:</p> <div class="comment-content">${newComment.content.rendered}</div><p class="go-to-post">Se innlegg..</p></li></a>`;
+      }
+    } catch (error) {
+      console.error('Error rendering newest comments:', error);
+    }
+  }
 
-    const newestCommentSection = document.querySelector(".newest-comments ul");
-    newCommentList.slice(0, 5).forEach((newComment) => {
-    newestCommentSection.innerHTML += `<a href="single-post.html?id=${newComment.post}"><li>${newComment.author_name} har kommentert: ${newComment.content.rendered}</li></a>`;
 
-    });
-    } 
 
    export async function getCommentsNumber(post) {
         const commentsData = await getComments(`${FENTY_COMMENTS_API_URL}?post=${post.id}`);
@@ -24,4 +27,3 @@ export async function renderNewestComments() {
         // })
         
         }
-        

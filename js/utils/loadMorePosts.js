@@ -71,13 +71,13 @@ export async function loadMorePosts() {
 }
 
 function disableLoadMoreButton() {
-    loadMoreButton.innerHTML = "No more posts";
+    loadMoreButton.innerHTML = "Ingen flere innlegg";
     loadMoreButton.classList.remove("load-more-link");
     loadMoreButton.removeEventListener("click", loadMorePosts);
 }
 
 function enableLoadMoreButton() {
-    loadMoreButton.innerHTML = "Load more posts";
+    loadMoreButton.innerHTML = "Last inn flere innlegg";
     loadMoreButton.classList.add("load-more-link");
     loadMoreButton.addEventListener("click", loadMorePosts);
 }

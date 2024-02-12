@@ -37,7 +37,7 @@ a {
 }
 
 .about-text {
-    padding: 5% 10%
+    padding: 3% 10%
 }
 
 .about-text h1 {
@@ -259,6 +259,14 @@ option {
     border-radius: 6px;
 } */
 
+.go-to-post {
+    margin: 0;
+    margin-top: 5px;
+    text-align: end;
+    font-style: italic;
+    font-size: 0.8rem;
+    color: var(--main-color-two);
+}
 
 /* CONTACT PAGE */
 
@@ -325,6 +333,12 @@ textarea {
 /*      SINGLE POST PAGE        */
 .single-blogpost-content {
     border-bottom: 1px solid black;
+}
+
+.wp-block-embed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .comments {
@@ -441,7 +455,9 @@ footer {
 
 .social-media {
     display: flex;
+    min-height: 30px;
     gap: 20px;
+    align-items: center;
 }
 
 .social-media i:hover {

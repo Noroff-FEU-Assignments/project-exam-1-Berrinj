@@ -220,6 +220,8 @@ h1.site-name-placeholder {
 .blog-post-text p {
     margin: auto;
     max-width: 800px;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
 }
 
 .blog-post-text a {
@@ -288,10 +290,6 @@ h1.site-name-placeholder {
     /* font-size: 1.2rem; */
 }
 
-.blog-post-text p {
-    margin-bottom: 10px;
-}
-
 /* .gallery {
     display: flex;
     flex-wrap: wrap;
@@ -349,13 +347,13 @@ height: 150px;
 }
 
 .wp-block-image>img {
-    max-width: 500px;
+    max-width: 80%;
     max-height: 500px;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 figcaption {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     font-style: italic;
 }
 
@@ -405,6 +403,10 @@ figcaption {
     font-style: italic;
 }
 
+.blog-post-info a {
+    font-weight: 500;
+}
+
 /* .load-more {
     color: #ADBAB2;
     margin: auto;
@@ -429,6 +431,8 @@ figcaption {
 
 .sidebar h2 {
     text-align: center;
+    background-color: #35423a7a;
+    padding: 10px;
 }
 
 .sidebar img {
@@ -454,20 +458,30 @@ figcaption {
 
 .newest-comments li,
 .newest-posts li {
-    margin-bottom: 20px;
-    padding: 6px;
-    border-radius: 6px;
-    background-color: #35423a7a;
+    margin-bottom: 10px;
+    padding: 10px 10px 5px 10px;
+    /* border-radius: 6px; */
+    /* background-color: #35423a65; */
+    border-bottom: 1px dotted var(--main-color-two);
 }
 
-.newest-comments li p {
+.newest-comments p {
     margin: 0;
-    font-weight: 200;
+}
+
+.comment-content p {
+    font-weight: 400;
+    padding: 10px 0
+}
+
+.comment-info {
+    font-style: italic;
 }
 
 .newest-posts li:hover,
 .newest-comments li:hover {
     background-color: #495a4f7a;
+    border-radius: 6px;
 }
 
 .read-more {
@@ -554,6 +568,7 @@ figcaption {
 
 .category a {
     font-style: italic;
+    font-weight: 500;
 }
 
 .blog-posts-category-container {
