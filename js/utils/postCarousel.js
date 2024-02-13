@@ -14,7 +14,9 @@ export async function renderPostCarousel() {
     postCarousel.innerHTML = "";
     const featuredMedia = displayPost[currentPostIndex]._embedded['wp:featuredmedia'] && displayPost[currentPostIndex]._embedded['wp:featuredmedia'][0] && displayPost[currentPostIndex]._embedded['wp:featuredmedia'][0].source_url;
     const imageUrl = featuredMedia || '/img/RIHANNAnm.jpg';
-    postCarousel.innerHTML = `<a href="single-post.html?id=${displayPost[currentPostIndex].id}"><img class="carousel-img" src="${imageUrl}"> <p class="carousel-text">${displayPost[currentPostIndex].title.rendered}</p>`
+    const featuredMediaAlt = displayPost[currentPostIndex]._embedded['wp:featuredmedia'] && displayPost[currentPostIndex]._embedded['wp:featuredmedia'][0] && displayPost[currentPostIndex]._embedded['wp:featuredmedia'][0].alt_text;
+    const imageAltText = featuredMediaAlt || `missing alt text`;
+    postCarousel.innerHTML = `<a href="single-post.html?id=${displayPost[currentPostIndex].id}"><img class="carousel-img" src="${imageUrl}" alt="${imageAltText}"> <p class="carousel-text">${displayPost[currentPostIndex].title.rendered}</p>`
 
     updateArrowButtonStates();
 }

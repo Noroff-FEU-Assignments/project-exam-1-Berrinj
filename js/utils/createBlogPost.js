@@ -14,6 +14,8 @@ export function createBlogPost(post) {
     // const featuredMedia = post._embedded['wp:featuredmedia']['0'].source_url
     const featuredMedia = post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0] && post._embedded['wp:featuredmedia'][0].source_url;
     const imageUrl = featuredMedia || '/img/RIHANNAnm.jpg';
+    const featuredMediaAlt = post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0] && post._embedded['wp:featuredmedia'][0].alt_text;
+    const imageAltText = featuredMediaAlt || `missing alt text`;
 
     const formattedDate = new Date(post.date).toLocaleDateString('nb-NO', {
     day: 'numeric',
@@ -45,7 +47,7 @@ async function getCommentsNumber() {
                                 <div class="blog-post-content">
                                     <div class="blog-post-img-title">
                                     <a href="single-post.html?id=${post.id}">
-                                        <img class="blog-post-main-img" src="${imageUrl}">
+                                        <img class="blog-post-main-img" src="${imageUrl}" alt="${imageAltText}">
                                         <h1 class="blog-post-title">${post.title.rendered}</h1></a>
                                     </div>
                                     <div class="blog-post-text">

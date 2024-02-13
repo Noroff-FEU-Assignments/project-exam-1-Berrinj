@@ -30,6 +30,8 @@ export async function getSinglePost() {
     document.title = `Fenty - Single post Page - ${result.title.rendered}`;
     const featuredMedia = result._embedded['wp:featuredmedia'] && result._embedded['wp:featuredmedia'][0] && result._embedded['wp:featuredmedia'][0].source_url;
     const imageUrl = featuredMedia || '/img/RIHANNAnm.jpg';
+    const featuredMediaAlt = result._embedded['wp:featuredmedia'] && result._embedded['wp:featuredmedia'][0] && result._embedded['wp:featuredmedia'][0].alt_text;
+    const imageAltText = featuredMediaAlt || `missing alt text`;
 
     
 
@@ -51,7 +53,7 @@ export async function getSinglePost() {
    
         // <p><a href="${categoryURL}">${categoryName}</p></a>
 
-    contentContainer.innerHTML = `<img class="main-post-img" src="${imageUrl}">
+    contentContainer.innerHTML = `<img class="main-post-img" src="${imageUrl}" alt="${imageAltText}">
                                 <div class="breadcrumbs">
                                     <p><a href="index.html">Hjem</a></p> / <p>${result.title.rendered}</p>
                                 </div>
