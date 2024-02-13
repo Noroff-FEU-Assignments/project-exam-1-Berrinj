@@ -11,6 +11,7 @@ const postCarousel = document.querySelector(".new-blog-post-carousel");
 export async function renderPostCarousel() {
     
     displayPost = await getPosts(`${FENTY_EMBED_API_URL}&per_page=5`);
+    postCarousel.innerHTML = "";
     const featuredMedia = displayPost[currentPostIndex]._embedded['wp:featuredmedia'] && displayPost[currentPostIndex]._embedded['wp:featuredmedia'][0] && displayPost[currentPostIndex]._embedded['wp:featuredmedia'][0].source_url;
     const imageUrl = featuredMedia || '/img/RIHANNAnm.jpg';
     postCarousel.innerHTML = `<a href="single-post.html?id=${displayPost[currentPostIndex].id}"><img class="carousel-img" src="${imageUrl}"> <p class="carousel-text">${displayPost[currentPostIndex].title.rendered}</p>`

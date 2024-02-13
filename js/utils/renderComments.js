@@ -8,9 +8,11 @@ export async function renderNewestComments() {
   
       const newestCommentSection = document.querySelector(".newest-comments ul");
   
+      newestCommentSection.innerHTML = "";
+      
       for (const newComment of newCommentList.slice(0, 5)) {
         const postInfo = await getPostInfo(newComment.post);
-        newestCommentSection.innerHTML += `<a href="single-post.html?id=${newComment.post}"><li><p class="comment-name">${newComment.author_name}</p> <p class="comment-info">har kommentert på ${postInfo.title.rendered}:</p> <div class="comment-content">${newComment.content.rendered}</div><p class="go-to-post">Se innlegg..</p></li></a>`;
+        newestCommentSection.innerHTML += `<li><a href="single-post.html?id=${newComment.post}"><p class="comment-name">${newComment.author_name}</p> <p class="comment-info">har kommentert på ${postInfo.title.rendered}:</p> <div class="comment-content">${newComment.content.rendered}</div><p class="go-to-post">Se innlegg..</p></a></li>`;
       }
     } catch (error) {
       console.error('Error rendering newest comments:', error);

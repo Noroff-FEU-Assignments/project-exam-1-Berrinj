@@ -8,6 +8,8 @@ export async function renderNewestBlogPosts() {
 
     const newestBlogPostSection = document.querySelector(".new-blog-post-list ul");
 
+    newestBlogPostSection.innerHTML = "";
+
     newPostList.slice(0, 8).forEach((newPostItem) => {
         count++;
     newestBlogPostSection.innerHTML += `<a href="single-post.html?id=${newPostItem.id}"><li>${newPostItem.title.rendered}<p class="go-to-post">Les mer..</p></li></a>`;

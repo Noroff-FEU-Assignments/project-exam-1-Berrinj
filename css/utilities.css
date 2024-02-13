@@ -58,14 +58,65 @@ a {
 }
 
 /*      LOADER      */
-.loader {
+/* .loader {
     color: #fff;
     text-align: center;
     padding-top: 100px;
     padding-bottom: 100px;
     font-size: 2rem;
     background-color: var(--main-color-three);
+} */
+
+/*  Loader from https://cssloaders.github.io/   */
+
+.loader,
+.loader:before,
+.loader:after {
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    animation-fill-mode: both;
+    animation: bblFadInOut 1.8s infinite ease-in-out;
 }
+
+.loader {
+    color: #797575;
+    font-size: 7px;
+    text-indent: -9999em;
+    transform: translateZ(0);
+    animation-delay: -0.16s;
+    margin: 20% auto;
+}
+
+.loader:before,
+.loader:after {
+    content: '';
+    position: absolute;
+    top: 0;
+}
+
+.loader:before {
+    left: -3.5em;
+    animation-delay: -0.32s;
+}
+
+.loader:after {
+    left: 3.5em;
+}
+
+@keyframes bblFadInOut {
+
+    0%,
+    80%,
+    100% {
+        box-shadow: 0 2.5em 0 -1.3em
+    }
+
+    40% {
+        box-shadow: 0 2.5em 0 0
+    }
+}
+
 
 
 /*      BUTTONS     */
@@ -223,6 +274,82 @@ li.sub-menu-start.open .sub-menu {
 }
 
 /*   SIDEBAR   */
+
+.sidebar {
+    display: grid;
+    min-height: 500px;
+    background-color: #242424;
+    color: var(--main-color-two);
+    grid-column: sidebar;
+    /* border-left: 1px solid var(--main-color-one); */
+    grid-template-rows: min-content min-content min-content auto;
+    gap: 20px;
+}
+
+.sidebar h2 {
+    text-align: center;
+    background-color: #35423a7a;
+    padding: 10px;
+}
+
+.sidebar img {
+    max-width: 250px;
+    opacity: 80%;
+}
+
+.newest-posts,
+.newest-comments {
+    margin-bottom: 15px;
+    max-width: 300px;
+    min-width: 200px;
+}
+
+
+.newest-posts ul,
+.newest-comments ul {
+    margin-right: 7%;
+    margin-left: 7%;
+    font-size: 0.9rem;
+    color: #fff;
+    font-weight: 300;
+}
+
+.newest-comments li,
+.newest-posts li {
+    margin-bottom: 10px;
+    padding: 10px 10px 5px 10px;
+    /* border-radius: 6px; */
+    /* background-color: #35423a65; */
+    border-bottom: 1px dotted var(--main-color-two);
+}
+
+.newest-comments p {
+    margin: 0;
+}
+
+.comment-content p {
+    font-weight: 400;
+    padding: 10px 0
+}
+
+.comment-info {
+    font-style: italic;
+}
+
+.newest-posts li:hover,
+.newest-comments li:hover {
+    background-color: #495a4f7a;
+    border-radius: 6px;
+}
+
+.read-more {
+    text-align: end;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    border-bottom: 1px solid var(--main-color-two);
+    font-style: italic;
+    font-weight: 200;
+}
 
 .filter-posts-by {
     text-align: center;
