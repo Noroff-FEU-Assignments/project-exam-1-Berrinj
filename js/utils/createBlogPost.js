@@ -40,7 +40,7 @@ async function getCommentsNumber() {
                                         <h4>${formattedDate}</h4>
                                     </div>
                                     <div class="blog-post-header-img">
-                                        <img src="/img/post-top-image.png">
+                                        <img src="/img/post-top-image.png" alt="Rihannas øyne">
                                     </div>
                                 </div>
                                 

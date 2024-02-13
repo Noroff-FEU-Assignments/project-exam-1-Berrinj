@@ -497,6 +497,11 @@ textarea {
     margin: auto;
 }
 
+#comment-section h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 #comment-form label {
     font-weight: 600;
 }
