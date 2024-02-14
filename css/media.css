@@ -181,11 +181,12 @@
     }
 
     .main-menu a {
-        width: 100%;
+        width: 95%;
     }
 
     .main-menu li {
         border-bottom: 1px solid var(--main-color-three);
+        padding: 0 0 0 10px;
     }
 
     .sub-menu-start {
@@ -257,4 +258,10 @@
     .about-text h2 {
         font-size: 1.1rem;
     }
+
+    .about-text iframe,
+    .single-blog-post-text iframe {
+        height: 200px;
+    }
+
 }

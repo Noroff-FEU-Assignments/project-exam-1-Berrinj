@@ -149,8 +149,8 @@ li.sub-menu-start.open .sub-menu {
     top: 60px;
 }
 
-.main-menu a {
-    padding: 0 10px 0 10px;
+.main-menu li {
+    padding: 0 5px 0 5px;
 }
 
 .sub-menu {
