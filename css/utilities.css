@@ -643,6 +643,7 @@ footer {
             rgb(7, 29, 12),
             rgb(41, 41, 41));
     opacity: 0.75;
+    cursor: pointer;
 }
 
 dialog {
@@ -657,5 +658,4 @@ dialog img {
     max-height: inherit;
     object-fit: contain;
     display: flex;
-    cursor: pointer;
 }
