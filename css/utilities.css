@@ -565,7 +565,6 @@ textarea {
     height: 432px;
 }
 
-
 /* FOOTER   */
 footer {
     background-color: var(--main-color-one);
@@ -623,6 +622,7 @@ footer {
     min-height: 30px;
     gap: 20px;
     align-items: center;
+    flex-direction: row;
 }
 
 .social-media i:hover {

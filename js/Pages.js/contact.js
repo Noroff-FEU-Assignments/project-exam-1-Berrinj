@@ -20,7 +20,7 @@ form.addEventListener("submit", e => {
     if(validateInputs()) {
         form.reset();
         fieldset.style.background = "#a1ca77";
-        fieldset.innerHTML = `<p class="success-form-message">Meldingen din er mottatt, jeg prøver å svare innen 24timer :) </p>`;
+        fieldset.innerHTML = `<p class="success-form-message">Meldingen din er mottatt, jeg prøver å svare innen 24timer :) </p><p><i>Kontaktskjema er ikke i bruk enda</i>.</p>`;
     };
 });
 

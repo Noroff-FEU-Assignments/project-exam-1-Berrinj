@@ -52,12 +52,14 @@ function createCategoryBlogPost(post) {
     const featuredMedia = post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0] &&post._embedded['wp:featuredmedia'][0].source_url;
     const imageUrl = featuredMedia || '/img/RIHANNAnm.jpg';
 
-    const textMaxLength = 120;
+    const textMaxLength = 90;
 
     blogPostCard.innerHTML += `<a href="single-post.html?id=${post.id}">
+    <div class="blog-posts-category-card">
                                 <img src="${imageUrl}" class="category-img">
                                 <h2>${post.title.rendered}</h2>
                                 ${truncateText(post.excerpt.rendered, textMaxLength)}
+                                </div>
                                 </a>`;
         console.log(post.title.rendered);
 

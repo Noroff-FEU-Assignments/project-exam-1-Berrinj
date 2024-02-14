@@ -485,6 +485,10 @@ figcaption {
     font-style: italic;
 }
 
+.single-blog-post-text iframe {
+    max-width: 100%;
+}
+
 .single-post-gallery {
     cursor: pointer;
 }
@@ -509,14 +513,15 @@ figcaption {
 .blog-post-container {
     max-width: 300px;
     min-width: 200px;
-    min-height: 320px;
-    height: fit-content;
+    min-height: 270px;
+    max-height: fit-content;
     margin: 10px;
     border: 1px solid black;
-    background-color: var(--main-color-two);
-    background-color: white;
+    background-color: var(--main-color-one);
+    /* background-color: white; */
     border-radius: 6px;
     overflow: hidden;
+    color: var(--main-color-two);
 }
 
 .blog-post-container h2,
@@ -524,15 +529,19 @@ figcaption {
     padding: 6px;
 }
 
+.blog-post-container p {
+    margin: 0;
+}
+
 .blog-post-container:hover {
-    background-color: #829288;
+    background-color: #3f4d44;
 }
 
 .category-img {
     width: 100%;
     height: 120px;
     object-fit: cover;
-    box-shadow: 0px 2px 5px black;
+    box-shadow: 0px 1px 5px black;
 }
 
 .category-filter-blog-text {}
