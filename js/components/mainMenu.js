@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 const menuItems = document.querySelectorAll("li.sub-menu-start");
 Array.prototype.forEach.call(menuItems, function (el, i) {
-    const link = el.querySelector("a");
+    const link = el.querySelector(".sub-menu-start");
     const subMenu = el.querySelector(".sub-menu");
     const subMenuLinks = subMenu.querySelectorAll("a");
 
