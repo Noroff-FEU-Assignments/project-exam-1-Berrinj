@@ -85,34 +85,6 @@ let loadMoreButton = document.querySelector(".load-more");
 const blogPostContainer = document.querySelector(".blog-posts-container");
 let currentPage = 1;
 
-// async function loadMorePosts(){
-//     try {
-//         currentPage++;
-//         let morePosts = await getPosts(`${FENTY_EMBED_API_URL}&page=${currentPage}`);
-//         console.log("New Post Data:", morePosts);
-    
-//         morePosts.forEach((post) => {
-//         const blogPostCard = createBlogPost(post);
-//         blogPostContainer.appendChild(blogPostCard);
-        
-//         });
-//     if(morePosts.length === 0) {
-//             loadMoreButton.disabled = true;
-//         }
-       
-//     } catch (error) {
-//         console.log(error, "Error loading more posts");
-//     }
-//     }
-
-    // loadMoreButton.addEventListener("click", loadMorePosts);
-
-
-//     loadMoreButton.addEventListener("click", function () {
-//     const selectedCategory = getSelectedCategory();
-//     loadMorePosts(selectedCategory);
-// });
-
 let selectSortBy = document.querySelector("#filter-posts-by");
 selectSortBy.addEventListener("change", function() {
 const selectedCategory = selectSortBy.value;
@@ -128,33 +100,6 @@ setSelectedCategory(selectedCategoryMobile);
 sortPosts(selectedCategoryMobile);
 renderBlogPosts(selectedCategoryMobile);
 });
-
-
-// export async function renderBlogPosts(selectedCategory = "All") {
-//     try{
-//     let blogPosts = await getPosts(`${FENTY_EMBED_API_URL}&page=${currentPage}`);
-//     // console.log("Post Data:", blogPosts);
-
-//     blogPosts = blogPosts.filter((post) => {
-//         const categoryIds = post.categories.map(String);
-//         return selectedCategory === "All" || categoryIds.includes(selectedCategory);
-
-//     });
-
-//     console.log("Filtered Posts:", blogPosts);
-   
-
-//     blogPostContainer.innerHTML = "";
-
-//    blogPosts.forEach((post) => {
-//         const blogPostCard = createBlogPost(post);
-//         blogPostContainer.appendChild(blogPostCard);
-// });
-//  } catch (error) {
-//     console.log(error, "Sorry an error occurred");
-//  }
-
-// }
 
 export async function renderBlogPosts(selectedCategory = "All") {
     try {

@@ -94,7 +94,7 @@ h1.site-name-placeholder {
 }
 
 .left-info-image img {
-    max-width: fit-content;
+    max-width: 100%;
     min-width: 200px;
     height: 250px;
     opacity: 50%;

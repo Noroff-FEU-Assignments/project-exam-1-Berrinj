@@ -1,5 +1,7 @@
+
 // import { hamburgerMenuClick } from "../components/hamburgerMenu.js";
 // hamburgerMenuClick();
+
 const nav = document.querySelector(".main-menu");
 const hamburgerMenu = document.querySelector(".hamburger-menu");
 

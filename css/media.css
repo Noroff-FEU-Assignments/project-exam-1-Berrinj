@@ -1,8 +1,8 @@
 @media (max-width: 1080px) {
-    .left-info-image img {
-        /* display: none; */
+    /* .left-info-image img {
+        display: none;
         width: 200px;
-    }
+    } */
 
     .new-posts-site-info {
         width: 100%;
@@ -56,6 +56,18 @@
     .wp-block-gallery figure {
         margin-inline-start: 20px;
         margin-inline-end: 20px;
+    }
+
+    .album-info {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 20px;
+        flex-direction: column;
+    }
+
+    .cover-art {
+        height: auto;
+        max-width: 100%;
     }
 }
 

@@ -138,10 +138,19 @@ a {
     display: none;
 } 
 */
+.sub-menu-start a {
+    cursor: default;
+}
+
 ul.sub-menu {
     display: none;
     position: absolute;
 }
+
+/* 
+li.sub-menu-start.open ul.sub-menu {
+    display: block;
+} */
 
 li.sub-menu-start:hover>ul.sub-menu,
 li.sub-menu-start.open .sub-menu {
@@ -164,7 +173,10 @@ li.sub-menu-start.open .sub-menu {
 
 .sub-menu li {
     display: block;
+}
 
+.sub-menu li a {
+    cursor: pointer;
 }
 
 
@@ -229,6 +241,10 @@ li.sub-menu-start.open .sub-menu {
 } */
 
 /*              BLOG            */
+
+.author {
+    margin-right: 5px;
+}
 
 .filter-mobile {
     display: none;
@@ -437,6 +453,7 @@ textarea {
     padding: 12px 20px;
     margin: 8px 0 3px 0;
     box-sizing: border-box;
+    border-radius: 6px;
 }
 
 .submit-form {
@@ -492,9 +509,10 @@ textarea {
 }
 
 #comment-section {
-    max-width: 90%;
+    max-width: 100%;
     min-width: 60%;
     margin: auto;
+    padding: 10px;
 }
 
 #comment-section h2 {
@@ -506,9 +524,9 @@ textarea {
     font-weight: 600;
 }
 
-#username {
+/* #username {
     border-radius: 6px;
-}
+} */
 
 textarea {
     min-height: 100px;
@@ -524,12 +542,41 @@ textarea {
 
 .no-comments {
     font-style: italic;
+    margin: auto;
 }
 
 .comment-on-hold {
     color: red;
     font-style: italic;
     margin-top: 20px;
+}
+
+.more-blog-post-carousel {
+    border-top: 1px solid black;
+    padding: 10px;
+}
+
+.more-blog-post-carousel h4 {
+    text-align: center;
+    padding: 2%;
+}
+
+.more-blog-post-carousel h3 {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.more-blog-posts-carousel-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.new-blog-post-carousel-card {
+    width: 250px;
+    border: 1px solid var(--main-color-one);
+    margin: 20px;
+    border-radius: 6px;
 }
 
 /*          BRAND PAGES             */
@@ -564,6 +611,30 @@ textarea {
     width: 80%;
     height: 432px;
 }
+
+/*      MUSIC PAGE      */
+
+.album {
+    background-color: var(--main-color-one);
+    color: #fff;
+}
+
+.album-info {
+    display: flex;
+    /* flex-wrap: wrap; */
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    min-height: 350px;
+    margin: auto;
+    gap: 20px;
+}
+
+.cover-art {
+    max-width: 300px;
+    min-width: 150px;
+}
+
 
 /* FOOTER   */
 footer {

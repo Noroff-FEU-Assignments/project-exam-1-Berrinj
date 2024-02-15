@@ -26,7 +26,7 @@ export function createBlogPost(post) {
 //     hour: 'numeric',
 //     minute: 'numeric'
 // });
-async function getCommentsNumber() {
+async function renderBlogPostInfo() {
     try {
         const commentsData = await getComments(`${FENTY_COMMENTS_API_URL}?post=${post.id}`);
         const categoriesList = await getCategories(`${FENTY_CATEGORY_API_URL}?post=${post.id}`);
@@ -57,7 +57,7 @@ async function getCommentsNumber() {
                                 </div>
                                 <div class="blog-post-info">
                                     <div class="author">
-                                        <p>Postet av: ${post._embedded.author[0].name} i <a href="category.html?id=${categoryId}&categoryName=${categoryName}">${categoryName}</a></p>
+                                        <p>Av: ${post._embedded.author[0].name} i <a href="category.html?id=${categoryId}&categoryName=${categoryName}">${categoryName}</a></p>
                                     </div>
                                     <div class="dateandtime">
                                         <p>Kommentarer: ${commentsData.length}</p>
@@ -70,7 +70,7 @@ async function getCommentsNumber() {
             }
         }
 
-        getCommentsNumber();
+        renderBlogPostInfo();
 
     return blogPostCard;
     } catch (error) {

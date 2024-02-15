@@ -119,6 +119,7 @@ function openModal(src, alt) {
       
 }
 
+
 async function modalClick() {
     const imagesAPI = await getPosts(`${FENTY_API_URL}/${id}/?_embed`);
     const imgData = dataFromContentRendered(imagesAPI.content.rendered);
@@ -165,22 +166,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function handleCommentSubmitted() {
     const username = document.querySelector("#username");
+    const email = document.querySelector("#email");
     const comment = document.querySelector("#comment");
 
-    if (validateInputs(username, comment)) {
+    if (validateInputs(username, email, comment)) {
         const usernameValue = document.querySelector("#username").value;
+        const emailValue = document.querySelector("#email").value;
         const commentValue = document.querySelector("#comment").value;
         const commentData = {
             post: id,
             author_name: usernameValue,
             content: commentValue,
-            author_email: `placeholderemail@example.no`,
+            author_email: emailValue,
         };
         commentForm.reset();
         console.log(commentData);
         submitCommentToWordPress(commentData);
     }
 }
+const isEmailValid = email => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+};
 
 const setError = (element, message) => {
     const inputControl = element.parentElement;
@@ -199,9 +206,10 @@ const setSuccess = element => {
     inputControl.classList.remove("form-error");
 }
 
-function validateInputs(username, comment) {
+function validateInputs(username, email, comment) {
     let isValid = true;
     const usernameTrim = username.value.trim();
+    const emailValue = email.value.trim();
     const commentTrim = comment.value.trim();
 
    if (usernameTrim.length < 3) {
@@ -210,6 +218,17 @@ function validateInputs(username, comment) {
     } else {
         setSuccess(username);
     }
+
+    if (emailValue === "") {
+        setError(email, "Email er påkrevd");
+        isValid = false;
+    } else if (!isEmailValid(emailValue)) {
+        setError(email, "Skriv inn en ekte email adresse");
+        isValid = false;
+    }else {
+        setSuccess(email);
+    }
+    
     if (commentTrim.length < 4) {
         setError(comment, "Kommentaren kan ikke være under 4 karakterer");
         isValid = false;

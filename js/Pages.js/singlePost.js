@@ -3,6 +3,7 @@
 // import { FENTY_CATEGORY_API_URL } from "../fetchAPI/categoriesAPI.js";
 // import { getCategories } from "../utils/categories.js";
 import { getSinglePost } from "../utils/getSinglePost.js";
+import { renderBlogCarousel } from "../components/moreBlogPostsCarousel.js";
 // import { example } from "../utils/reverseEngineerContentRendered.js";
 
 // const queryString = document.location.search;
@@ -82,3 +83,4 @@ export function hamburgerMenuClick() {
 }
 
 getSinglePost();
+renderBlogCarousel();
