@@ -70,8 +70,39 @@
                     jeg gjøre så godt jeg kan å svare på det!</p>
                 <p>Fyll ut skjemaet under med navn, email, emne, og skriv spørsmålet ditt i melding boksen.</p>
             </div>
-            <div class="contact-form">
-                <form id="form" action="/" novalidate>
+            <div class="contact-form-container">
+
+                <form id="contact-form"
+                    action="http://fenty.berremarte.no/wp-json/contact-form-7/v1/contact-forms/276/feedback"
+                    method="post">
+                    <div class="input-control">
+                        <label for="your-name" id="name-label">Navn*</label>
+                        <input id="your-name" type="text" name="your-name" placeholder="Navn på over 5 karakterer..">
+                        <div class="form-error"></div>
+                    </div>
+                    <div class="input-control">
+                        <label for="your-email" id="email-label">Email*</label>
+                        <input id="your-email" type="email" name="your-email"
+                            placeholder="Skriv inn din email adresse her..">
+                        <div class="form-error"></div>
+                    </div>
+                    <div class="input-control">
+                        <label for="your-subject" id="subject-label">Emne*</label>
+                        <input id="your-subject" type="text" name="your-subject"
+                            placeholder="Emnet må være på over 15 karkaterer..">
+                        <div class="form-error"></div>
+                    </div>
+                    <div class="input-control">
+                        <label for="your-message" id="message-label">Melding*</label>
+                        <textarea id="your-message" name="your-message" rows="10"
+                            placeholder="Meldingen din må være på over 25 karakterer.."></textarea>
+                        <div class="form-error"></div>
+                    </div>
+                    <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f91-p92-o1" />
+                    <button type="submit" id="submit">Send inn kontaktskjema</button>
+                    <div class="success-message"></div>
+                </form>
+                <!-- <form id="form" action="/" novalidate>
                     <fieldset aria-labelledby="form-legend">
                         <legend>Fyll ut skjemaet</legend>
                         <div class="input-control">
@@ -98,11 +129,11 @@
                             <div class="form-error"></div>
                         </div>
                         <div class="submit-form">
-                            <!-- <label for="submit">Send inn kontaktskjema:</label> -->
+                            <label for="submit">Send inn kontaktskjema:</label>
                             <button type="submit" id="submit">Send inn kontaktskjema</button>
                         </div>
                     </fieldset>
-                </form>
+                </form> -->
             </div>
         </div>
     </main>
