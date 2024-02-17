@@ -14,6 +14,7 @@ export function hamburgerMenuClick() {
 
 switch (window.location.pathname) {
     case "/index.html":
+        case "/":
         import("../fetchAPI/getPost.js").then((module) => {
            console.log('Loaded getPost.js'); 
         }) 
