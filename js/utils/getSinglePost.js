@@ -173,8 +173,6 @@ const isEmailValid = email => {
 const setError = (element, message) => {
     const inputControl = element.parentElement;
     const errorMessage = inputControl.querySelector(".form-error");
-    // inputControl.classList.add("form-error");
-    // inputControl.classList.remove("success");
     errorMessage.innerText = message;
 }
 
