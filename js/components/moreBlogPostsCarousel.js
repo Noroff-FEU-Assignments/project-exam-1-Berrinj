@@ -7,6 +7,7 @@ export const id = params.get("id");
 const blogPostCarousel = document.querySelector(".more-blog-posts-carousel-cards");
 
 export async function renderBlogCarousel() {
+    try {
     const postinfo = await getPosts(FENTY_EMBED_API_URL);
     blogPostCarousel.innerHTML = "";
     postinfo.slice(0, 4).forEach((post) => {
@@ -15,7 +16,11 @@ export async function renderBlogCarousel() {
         blogPostCarousel.appendChild(blogPostCard);
     }
     })
-}
+    } catch (error) {
+        console.error(`Error ved henting av flere innlegg:`, error)
+        blogPostCarousel.innerHTML = `<div class="error">Beklager, en feil oppsto mens innleggene skulle lastes inn.</div>`;
+    }
+};
 
 export function createCategoryBlogPost(post) {
     const carousel = document.createElement(`div`);
@@ -30,5 +35,4 @@ export function createCategoryBlogPost(post) {
                                 </a>`;
 
         return carousel;
-
-}
+};

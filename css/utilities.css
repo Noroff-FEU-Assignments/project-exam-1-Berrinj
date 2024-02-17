@@ -498,15 +498,17 @@ h1.site-name-placeholder {
     gap: 30px;
     padding: 20px 20px 0 20px;
     font-size: 0.9rem;
+    color: #fff;
 }
 
 .fa-brands {
     width: 40px;
+    color: var(--main-color-two)
 }
 
 .instagram:hover,
 .twitter:hover {
-    color: #fff;
+    color: var(--main-color-two)
 }
 
 .newest-posts,

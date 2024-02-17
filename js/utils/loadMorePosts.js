@@ -11,7 +11,6 @@ export async function loadMorePosts() {
     try {
         currentPage++;
         const selectedCategory = getSelectedCategory();
-        // let morePosts = await getPosts(`${FENTY_EMBED_API_URL}&page=${currentPage}&categories=${selectedCategory}`);
         let morePosts;
 
         if (selectedCategory !== "All") {
@@ -19,10 +18,6 @@ export async function loadMorePosts() {
         } else {
             morePosts = await getPosts(`${FENTY_EMBED_API_URL}&page=${currentPage}`);
         }
-        
-
-        console.log("New Post Data:", morePosts);
-        
 
         if (morePosts.code === 'rest_post_invalid_page_number') {
             console.error("Invalid page number:", morePosts.message);
@@ -44,6 +39,8 @@ export async function loadMorePosts() {
         }
     } catch (error) {
         console.log(error, "Error loading more posts");
+        blogPostContainer.innerHTML += `<div class="error">Beklager, en feil oppsto mens flere innlegg skulle laste inn.</div>`;
+        throw error;
     }
 }
 

@@ -3,6 +3,8 @@ import { getCategories } from "./categories.js";
 import { FENTY_CATEGORY_API_URL } from "../fetchAPI/categoriesAPI.js";
 import { getComments } from "./comments.js";
 import { FENTY_COMMENTS_API_URL } from "../fetchAPI/commentsAPI.js";
+const main = document.querySelector("main");
+const blogContent = document.querySelector(".blog-content");
 
 export function createBlogPost(post) {
 
@@ -25,6 +27,8 @@ export function createBlogPost(post) {
 //     hour: 'numeric',
 //     minute: 'numeric'
 // });
+
+
 async function renderBlogPostInfo() {
     try {
         const commentsData = await getComments(`${FENTY_COMMENTS_API_URL}?post=${post.id}`);
@@ -32,7 +36,6 @@ async function renderBlogPostInfo() {
         const categoryName = categoriesList.length > 0 ? categoriesList[0].name : 'Uncategorized';
         const categoryId = categoriesList.length > 0 ? categoriesList[0].id : `Undefined`;
 
-        const main = document.querySelector("main");
         if (main) {
         blogPostCard.innerHTML = `<div class="blog-post-header">
                                     <div class="blog-date">
@@ -65,7 +68,8 @@ async function renderBlogPostInfo() {
                         `;   
                 }
             } catch (error) {
-                console.log(error, "Error getting comments");
+                console.error("Error ved henting av innhold:", error);
+                blogContent.innerHTML = `<div class="error">Beklager, en feil oppsto ved innlasting av innhold</div>`;
             }
         }
 
@@ -74,9 +78,9 @@ async function renderBlogPostInfo() {
     return blogPostCard;
     } catch (error) {
         if (main) {
-        main.innerHTML = `<div class="error">We are so sorry, an error occurred while loading this page.</div>`;
+            blogContent.innerHTML = `<div class="error">Beklager, en feil oppsto ved innlasting av innhold</div>`;
     }
-        console.log(error, `Sorry, an error occurred`);
+        console.error(`En feil oppsto:`, error);
         return null;
 }
 }

@@ -1,6 +1,5 @@
 import { FENTY_EMBED_API_URL } from "../fetchAPI/embedAPI.js";
 import { getPosts } from "./posts.js";
-// import { createBlogPost } from "./createBlogPost.js";
 
 let currentPostIndex = 0;
 let displayPost;
@@ -9,6 +8,7 @@ const rightArrow = document.querySelector(".right-arrow");
 const postCarousel = document.querySelector(".new-blog-post-carousel");
 
 export async function renderPostCarousel() {
+    try {
     
     displayPost = await getPosts(`${FENTY_EMBED_API_URL}&per_page=5`);
     postCarousel.innerHTML = "";
@@ -19,6 +19,10 @@ export async function renderPostCarousel() {
     postCarousel.innerHTML = `<a href="single-post.html?id=${displayPost[currentPostIndex].id}"><img class="carousel-img" src="${imageUrl}" alt="${imageAltText}"> <p class="carousel-text">${displayPost[currentPostIndex].title.rendered}</p>`
 
     updateArrowButtonStates();
+} catch (error) {
+    postCarousel.innerHTML = `<div class="error">En feil oppsto ved innlasting av innleggene</div>`;
+    throw error;
+}
 }
 
 export function handleRightArrow() {

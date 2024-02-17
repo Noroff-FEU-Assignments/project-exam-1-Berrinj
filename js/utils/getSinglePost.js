@@ -1,7 +1,5 @@
 import { FENTY_CATEGORY_API_URL } from "../fetchAPI/categoriesAPI.js";
-import { FENTY_MEDIA_API_URL } from "../fetchAPI/mediaAPI.js";
 import { getCategories } from "../utils/categories.js";
-import { FENTY_EMBED_API_URL } from "../fetchAPI/embedAPI.js";
 import { FENTY_COMMENTS_API_URL } from "../fetchAPI/commentsAPI.js";
 import { FENTY_API_URL } from "../fetchAPI/baseAPI.js";
 import { getPosts } from "./posts.js";
@@ -19,6 +17,7 @@ const url =`${FENTY_API_URL}/${id}?_embed`;
 const main = document.querySelector("main");
 const mainContainer = document.querySelector(".single-blogpost-container");
 const contentContainer = document.querySelector(".single-blogpost-content")
+const singleBlogPostContainer = document.querySelector(".single-blogpost-container");
 
 
 export async function getSinglePost() {
@@ -71,14 +70,13 @@ export async function getSinglePost() {
                                 <p>Kategori: <a href="category.html?id=${categoryId}&categoryName=${categoryName}">${categoryName}</a></p>
                                 </div>
                                 <div id="go-back" onclick="history.back()">&larr; Gå tilbake</div>`;
-                                // await example();
+
                                 await modalClick();
-                                // await modalImg();
                                 galleryClassList()
-                                // await imageSrc();
                                 
     } catch(error) {
-        main.innerHTML = `<div class="error">We are so sorry, an error occurred while loading this page.</div>`;
+        singleBlogPostContainer.innerHTML = `<div class="error">Beklager, en feil oppsto mens innlegget skulle lastes inn. <a href="javascript:history.back()">Gå tilbake</a></div>`;
+        throw error;
     }
 }
 
@@ -263,6 +261,7 @@ function updateCommentSection(comments) {
 
 
 async function displayComments() {
+    try {
     const comments = await getComments(`${FENTY_COMMENTS_API_URL}?post=${id}`);
 
     if(comments.length === 0) {
@@ -291,6 +290,9 @@ async function displayComments() {
                                     <div class="comment-date">${formattedDate} ${formattedTime}</div
                                     </div>`   
     })
+} catch (error) {
+    commentContent.innerHTML = `<div class="error">En feil oppsto ved innlasting av kommentarer</div>`;
+}
 }
 
 displayComments();
@@ -318,7 +320,7 @@ function submitCommentToWordPress(commentData) {
             fetchCommentsAndUpdateUI();
         })
         .catch(error => {
-            console.error('Error submitting comment:', error);
+            console.error('En feil oppsto ved posting av kommentar:', error);
         });
 }
 

@@ -41,21 +41,27 @@ export async function renderBlogPosts(selectedCategory = "All") {
 
         blogPostContainer.innerHTML = "";
 
-        blogPosts.forEach((post) => {
-            const blogPostCard = createBlogPost(post);
-            blogPostContainer.appendChild(blogPostCard);
-        });
+        const blogPostCard = blogPosts.map((post) => createBlogPost(post));
+            blogPostContainer.append(...blogPostCard);
+
     } catch (error) {
-        console.log(error, "Sorry, an error occurred");
+        blogPostContainer.innerHTML = `<div class="error">Beklager, en feil oppsto mens innleggene skulle lastes inn.</div>`
+        console.error("Beklager en feil oppsto:", error);
+        throw error;
     }
 }
 
 export async function example() {
+    try {
     const post = await getPosts(FENTY_EMBED_API_URL);
     post.forEach((postdata)=> {
     const data = dataFromContentRendered(postdata.content.rendered);
-    console.log(data);   
-    })
+    return data;   
+    });
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
 }
 
 
