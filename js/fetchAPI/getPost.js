@@ -35,10 +35,8 @@ export async function renderBlogPosts(selectedCategory = "All") {
         let blogPosts;
         if (selectedCategory === "All") {
             blogPosts = await getPosts(`${FENTY_EMBED_API_URL}&page=${currentPage}`);
-            console.log("All Post Data:", blogPosts);
         } else {
             blogPosts = await getPosts(`${FENTY_EMBED_API_URL}&categories=${selectedCategory}`);
-            console.log("Filtered Posts:", blogPosts);
         }
 
         blogPostContainer.innerHTML = "";

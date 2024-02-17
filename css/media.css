@@ -31,18 +31,26 @@
 
     .sidebar {
         display: flex;
-        justify-content: space-around;
+        flex-direction: column;
+        /* justify-content: space-around; */
+        align-content: center;
         flex-wrap: wrap;
         gap: 10px;
         padding-top: 50px;
     }
 
-    .searchbar {
+    /* .searchbar {
         display: none;
     }
 
     .newest-instagram {
         display: none;
+    } */
+
+    .newest-posts,
+    .newest-comments,
+    .social-media-sidebar {
+        margin-bottom: 15px;
     }
 
     .filter-posts {
@@ -51,6 +59,28 @@
 
     .filter-mobile {
         display: block;
+    }
+
+    .filter-posts-mobile {
+        background-color: var(--main-color-three);
+        padding: 10px;
+        border-bottom: 1px solid var(--main-color-two);
+    }
+
+    .filter-posts-by-mobile {
+        color: #fff;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .filter-posts-by-mobile .option-inputs {
+        width: 200px;
+    }
+
+    .filter-posts-by-mobile label {
+        font-size: 14px;
     }
 
     .wp-block-gallery figure {

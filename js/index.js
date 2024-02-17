@@ -1,8 +1,3 @@
-
-// import { hamburgerMenuClick } from "../components/hamburgerMenu.js";
-// hamburgerMenuClick();
-
- /* Hamburger Menu  */
 const nav = document.querySelector(".main-menu");
 const hamburgerMenu = document.querySelector(".hamburger-menu");
 
@@ -15,26 +10,23 @@ export function hamburgerMenuClick() {
 switch (window.location.pathname) {
     case "/index.html":
         case "/":
-        import("../fetchAPI/getPost.js").then((module) => {
+        import("../js/fetchAPI/getPost.js").then((module) => {
            console.log('Loaded getPost.js'); 
         }) 
         break;
     case "/contact.html":
         case "/contact":
-      import("./contact.js").then((module) => {
-        // Do something with the imported module
+      import("../js/Pages.js/contact.js").then((module) => {
         console.log('Loaded contact.js');
       });
       break;
     case "/category.html":
-      import("./category.js").then((module) => {
-        // Do something with the imported module
+      import("../js/Pages.js/category.js").then((module) => {
         console.log('Loaded category.js');
       });
       break;
     case "/single-post.html":
-      import("./singlePost.js").then((module) => {
-        // Do something with the imported module
+      import("../js/Pages.js/singlePost.js").then((module) => {
         console.log('Loaded singlePost.js');
       });
       break;

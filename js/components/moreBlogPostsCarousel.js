@@ -4,14 +4,12 @@ import { FENTY_EMBED_API_URL } from "../fetchAPI/embedAPI.js";
 const queryString = document.location.search;
 export const params = new URLSearchParams(queryString);
 export const id = params.get("id");
-console.log(id);
 const blogPostCarousel = document.querySelector(".more-blog-posts-carousel-cards");
 
 export async function renderBlogCarousel() {
     const postinfo = await getPosts(FENTY_EMBED_API_URL);
     blogPostCarousel.innerHTML = "";
     postinfo.slice(0, 4).forEach((post) => {
-        console.log(post.id)
         if(post.id != id ){
         const blogPostCard = createCategoryBlogPost(post);
         blogPostCarousel.appendChild(blogPostCard);
@@ -30,7 +28,6 @@ export function createCategoryBlogPost(post) {
                                 <img src="${imageUrl}" class="category-img">
                                 <h4>${post.title.rendered}</h4>
                                 </a>`;
-        console.log(post.title.rendered);
 
         return carousel;
 

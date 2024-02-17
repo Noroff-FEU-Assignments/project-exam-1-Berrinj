@@ -25,7 +25,6 @@ export async function getSinglePost() {
     try {
     const response = await fetch(url);
     const result = await response.json();
-    console.log(result);
     contentContainer.innerHTML = ``;
     document.title = `Fenty - Single post Page - ${result.title.rendered}`;
     const featuredMedia = result._embedded['wp:featuredmedia'] && result._embedded['wp:featuredmedia'][0] && result._embedded['wp:featuredmedia'][0].source_url;
@@ -39,7 +38,6 @@ export async function getSinglePost() {
         const categoryName = categoriesList.length > 0 ? categoriesList[0].name : 'Uncategorized';
         const categoryURL = categoriesList[0].link;
         const categoryId = categoriesList.length > 0 ? categoriesList[0].id : `Undefined`;
-        console.log(categoryId);
 
         const formattedDate = new Date(result.date).toLocaleDateString('nb-NO', {
             day: 'numeric',
@@ -50,8 +48,6 @@ export async function getSinglePost() {
             hour: 'numeric',
             minute: 'numeric'
         });
-   
-        // <p><a href="${categoryURL}">${categoryName}</p></a>
 
     contentContainer.innerHTML = `<img class="main-post-img" src="${imageUrl}" alt="${imageAltText}">
                                 <div class="breadcrumbs">
@@ -83,21 +79,10 @@ export async function getSinglePost() {
                                 
     } catch(error) {
         main.innerHTML = `<div class="error">We are so sorry, an error occurred while loading this page.</div>`;
-        console.log(error, `Sorry, an error occurred`);
     }
 }
-/* <div class="comments">
-                                        <p>5 comments</p>
-                                    </div> */
-// export async function example() {
-//     const post = await getPosts(`${FENTY_API_URL}/${id}/?_embed`);
-//     const data = dataFromContentRendered(post.content.rendered);
-//     console.log(data);
-// }
 
 function openModal(src, alt) {
-    console.log('Clicked image:', src);
-    console.log('Alt text:', alt);
     const dialog = document.querySelector("dialog");
     dialog.innerHTML = "";
     const fullSizeImage = document.createElement("img");
@@ -123,7 +108,6 @@ function openModal(src, alt) {
 async function modalClick() {
     const imagesAPI = await getPosts(`${FENTY_API_URL}/${id}/?_embed`);
     const imgData = dataFromContentRendered(imagesAPI.content.rendered);
-    console.log(imgData);
 
     const galleryContainer = document.querySelector('.wp-block-gallery');
     const singleImage = document.querySelector(`.wp-block-image`);
@@ -180,7 +164,6 @@ function handleCommentSubmitted() {
             author_email: emailValue,
         };
         commentForm.reset();
-        console.log(commentData);
         submitCommentToWordPress(commentData);
     }
 }
@@ -244,7 +227,6 @@ const noComment = document.querySelector(".no-comments");
 async function fetchCommentsAndUpdateUI() {
 
     const comments = await getComments(`${FENTY_COMMENTS_API_URL}?post=${id}`);
-    console.log(comments);
 
     updateCommentSection(comments);
 }
@@ -282,7 +264,6 @@ function updateCommentSection(comments) {
 
 async function displayComments() {
     const comments = await getComments(`${FENTY_COMMENTS_API_URL}?post=${id}`);
-    console.log(comments);
 
     if(comments.length === 0) {
             noComment.innerHTML = "Ingen kommentarer, vær den første!";
@@ -308,10 +289,7 @@ async function displayComments() {
                                     <div class="commenter-name">${comment.author_name}</div>
                                     <div class="comment-posted">${comment.content.rendered}</div>
                                     <div class="comment-date">${formattedDate} ${formattedTime}</div
-                                    </div>`                          
-                                    
-        console.log(comment.author_name, comment.content.rendered);
-        
+                                    </div>`   
     })
 }
 
@@ -331,8 +309,6 @@ function submitCommentToWordPress(commentData) {
     })
         .then(response => response.json())
         .then(data => {
-            console.log('Comment submitted successfully:', data);
-            console.log(data.status);
 
             if (data.status === `hold` ) {
                 commentOnHold.innerHTML = `Kommentaren din er til godkjenning.`;

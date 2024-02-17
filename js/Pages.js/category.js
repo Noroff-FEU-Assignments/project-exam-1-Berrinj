@@ -7,15 +7,13 @@ export const categoryId = params.get("id");
 const categoryName = params.get("categoryName")
 document.title = `Fenty - Kategori - ${categoryName}`;
 
-console.log(categoryId, categoryName);
-
 const categoryNameHeader = document.querySelector(".news-and-content");
 categoryNameHeader.innerHTML += `${categoryName}`;
 
 const blogPostContainer = document.querySelector(".blog-posts-category-container");
 
 async function renderPostByCategoryCard() {
-
+    blogPostContainer.innerHTML = `<div class="loader"></div>`;
     const getCategoryData = await getPosts(`${FENTY_EMBED_API_URL}&categories=${categoryId}`);
     blogPostContainer.innerHTML = "";
     getCategoryData.forEach((post) => {
@@ -41,7 +39,6 @@ function createCategoryBlogPost(post) {
                                 ${truncateText(post.excerpt.rendered, textMaxLength)}
                                 </div>
                                 </a>`;
-        console.log(post.title.rendered);
 
         function truncateText(text, maxLength) {
             if (text.length > maxLength) {
