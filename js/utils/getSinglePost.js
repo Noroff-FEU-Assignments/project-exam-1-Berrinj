@@ -25,7 +25,7 @@ export async function getSinglePost() {
     const response = await fetch(url);
     const result = await response.json();
     contentContainer.innerHTML = ``;
-    document.title = `Fenty - Single post Page - ${result.title.rendered}`;
+    document.title = `Fenty - Blog innlegg: ${result.title.rendered}`;
     const featuredMedia = result._embedded['wp:featuredmedia'] && result._embedded['wp:featuredmedia'][0] && result._embedded['wp:featuredmedia'][0].source_url;
     const imageUrl = featuredMedia || '/img/RIHANNAnm.jpg';
     const featuredMediaAlt = result._embedded['wp:featuredmedia'] && result._embedded['wp:featuredmedia'][0] && result._embedded['wp:featuredmedia'][0].alt_text;
