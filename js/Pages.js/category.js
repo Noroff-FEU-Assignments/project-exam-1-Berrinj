@@ -1,16 +1,5 @@
-import { FENTY_CATEGORY_API_URL } from "../fetchAPI/categoriesAPI.js";
 import { FENTY_EMBED_API_URL } from "../fetchAPI/embedAPI.js";
 import { getPosts } from "../utils/posts.js";
-import { getCategories } from "../utils/categories.js";
-
-const nav = document.querySelector(".main-menu");
-const hamburgerMenu = document.querySelector(".hamburger-menu");
-
-hamburgerMenu.addEventListener("click", hamburgerMenuClick);
-
-export function hamburgerMenuClick() {
-    nav.classList.toggle("active")
-}
 
 const queryString = document.location.search;
 export const params = new URLSearchParams(queryString);
@@ -22,15 +11,6 @@ console.log(categoryId, categoryName);
 
 const categoryNameHeader = document.querySelector(".news-and-content");
 categoryNameHeader.innerHTML += `${categoryName}`;
-
-// async function renderCategoryPosts() {
-//     const getCategorys = await getCategories(`${FENTY_CATEGORY_API_URL}`);
-
-//     getCategorys.forEach((category) => {
-//         console.log(category.id, category.name);
-//     })
-// }
-// renderCategoryPosts() 
 
 const blogPostContainer = document.querySelector(".blog-posts-category-container");
 

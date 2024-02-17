@@ -429,14 +429,33 @@ option {
     padding: 10px;
 }
 
-.success-form-message {
+.message-container {
     padding: 10px;
     border-radius: 6px;
     border: 1px solid var(--main-color-one);
     text-align: center;
+    max-width: 500px;
+    margin: auto;
 }
 
-/*first contact form wo api access*/
+.success-form-message {
+    background-color: lightgreen;
+}
+
+.error-form-message {
+    background-color: #ff0000;
+
+}
+
+.new-contact-submission {
+    font-style: italic;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    font-size: 0.9rem;
+}
+
 #form {
     padding: 10px;
 }

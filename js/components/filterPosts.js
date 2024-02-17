@@ -1,11 +1,7 @@
 let selectHeading = document.querySelector(".news-and-content");
-let container = document.querySelector(".blog-content");
-let selectSortBy = document.querySelector("#filter-posts-by");
-let selectSortByMobile = document.querySelector("#filter-posts-by-mobile");
 
 export function sortPosts(selectedValue) {    
-    // let selectedValue = selectSortBy.value;
-    // let selectedValueMobile = selectSortByMobile.value;
+
     switch (selectedValue) {
         case "All":
             selectHeading.textContent = "ALLE INNLEGG";

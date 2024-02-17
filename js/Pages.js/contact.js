@@ -3,7 +3,7 @@ const name = document.getElementById("your-name");
 const email = document.getElementById("your-email");
 const subject = document.getElementById("your-subject");
 const message = document.getElementById("your-message");
-const successMsg = document.querySelector(".success-message");
+const errorMsg = document.querySelector(".error-message");
 
 
 const isEmailValid = email => {
@@ -56,8 +56,6 @@ const validateInputs = () => {
 const setError = (element, message) => {
     const inputControl = element.parentElement;
     const errorMessage = inputControl.querySelector(".form-error");
-    // inputControl.classList.add("form-error");
-    // inputControl.classList.remove("success");
     errorMessage.innerText = message;
 }
 
@@ -80,19 +78,16 @@ const formSubmissionHandler = (event) => {
     const formElement = event.target; 
     const { action, method } = formElement; 
     const body = new FormData(formElement);
-console.log("Form Data:", body)
 
     fetch(action, {method, body})
     .then((response) => response.json())
     .then((response) => {
-        console.log(response)
         if(response.status === "mail_sent") {
-            successMsg.style.background = "#a1ca77";
-            successMsg.innerHTML = `<p class="success-form-message">Meldingen din er mottatt, jeg prøver å svare innen 24timer :)</p>`;
+            form.innerHTML = `<p class="success-form-message message-container">Meldingen din er mottatt, jeg prøver å svare innen 24timer :)</p>
+            <a href="contact.html" class="new-contact-submission">Ønsker du å sende en ny melding?</a>`;
             form.reset();
         } else {
-            successMsg.style.background = "#ff0000";
-            successMsg.innerHTML += `<p class="success-form-message">${response.message}</p>`; 
+            errorMsg.innerHTML += `<p class="error-form-message message-container">${response.message}</p>`; 
         }
     });
 }
@@ -101,14 +96,5 @@ console.log("Form Data:", body)
 
 form.addEventListener("submit", formSubmissionHandler);
 
+/*      The article that helped me with the formSubmissionHandler() function:               */
 /*      https://css-tricks.com/headless-form-submission-with-the-wordpress-rest-api/        */
-
-
-// const nav = document.querySelector(".main-menu");
-// const hamburgerMenu = document.querySelector(".hamburger-menu");
-
-// hamburgerMenu.addEventListener("click", hamburgerMenuClick);
-
-// export function hamburgerMenuClick() {
-//     nav.classList.toggle("active")
-// }
