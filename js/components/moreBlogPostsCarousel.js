@@ -28,9 +28,11 @@ export function createCategoryBlogPost(post) {
     carousel.dataset.postId = post.id;
     const featuredMedia = post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0] &&post._embedded['wp:featuredmedia'][0].source_url;
     const imageUrl = featuredMedia || '/img/RIHANNAnm.jpg';
+    const featuredMediaAlt = post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0] && post._embedded['wp:featuredmedia'][0].alt_text;
+    const imageAltText = featuredMediaAlt || `missing alt text`;
 
     carousel.innerHTML += `<a href="single-post.html?id=${post.id}">
-                                <img src="${imageUrl}" class="category-img">
+                                <img src="${imageUrl}" class="category-img" alt="${imageAltText}">
                                 <h4>${post.title.rendered}</h4>
                                 </a>`;
 
