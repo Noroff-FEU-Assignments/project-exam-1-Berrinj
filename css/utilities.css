@@ -50,39 +50,15 @@ a {
 
 /* 2. BUTTONS     */
 
-.sub-menu-start a {
-    cursor: default;
+#comment-button {
+    padding: 10px;
+    background-color: var(--main-color-two);
+    border-radius: 6px;
 }
 
-ul.sub-menu {
-    display: none;
-    position: absolute;
-}
-
-li.sub-menu-start:hover>ul.sub-menu,
-li.sub-menu-start.open .sub-menu {
-    display: block;
-    top: 60px;
-}
-
-.main-menu li {
-    padding: 0 5px 0 5px;
-}
-
-.sub-menu {
-    position: absolute;
-    background-color: black;
-    padding: 0 10px 10px 10px;
-    z-index: 1;
-    color: var(--main-color-two);
-    border-radius: 0px 0px 6px 6px;
-}
-
-.sub-menu li {
-    display: block;
-}
-
-.sub-menu li a {
+#comment-button:hover {
+    background-color: var(--main-color-one);
+    color: #fff;
     cursor: pointer;
 }
 
@@ -524,6 +500,15 @@ h1.site-name-placeholder {
     font-size: 0.9rem;
 }
 
+.fa-brands {
+    width: 40px;
+}
+
+.instagram:hover,
+.twitter:hover {
+    color: #fff;
+}
+
 .newest-posts,
 .newest-comments,
 .social-media-sidebar {
@@ -592,6 +577,11 @@ h1.site-name-placeholder {
     background-color: #35423a7a;
     color: white;
     text-align: center;
+}
+
+#filter-posts-by:hover {
+    background-color: #4a64547a;
+    cursor: pointer;
 }
 
 option {
@@ -929,12 +919,6 @@ textarea {
     border-radius: 6px;
 }
 
-#comment-button {
-    padding: 10px;
-    background-color: var(--main-color-two);
-    border-radius: 6px;
-}
-
 .no-comments {
     font-style: italic;
     margin: auto;
@@ -1059,6 +1043,7 @@ textarea {
 .brand-quick-info p {
     margin: 5px;
     font-weight: 500;
+    text-align: center;
 }
 
 .about-text {
@@ -1094,7 +1079,7 @@ textarea {
     justify-content: space-between;
     width: 80%;
     min-height: 350px;
-    margin: auto;
+    margin: 20px auto;
     gap: 20px;
 }
 
@@ -1102,6 +1087,12 @@ textarea {
     max-width: 300px;
     min-width: 150px;
 }
+
+.waiting {
+    width: 100%;
+    text-align: center;
+}
+
 
 /* 11. MODAL */
 ::backdrop {

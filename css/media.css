@@ -39,13 +39,9 @@
         padding-top: 50px;
     }
 
-    /* .searchbar {
-        display: none;
+    .some-icons {
+        align-items: center;
     }
-
-    .newest-instagram {
-        display: none;
-    } */
 
     .newest-posts,
     .newest-comments,
@@ -93,6 +89,10 @@
         justify-content: center;
         margin-bottom: 20px;
         flex-direction: column;
+    }
+
+    .tracklist {
+        order: 2;
     }
 
     .cover-art {
@@ -161,6 +161,7 @@
     .right-footer {
         order: 1;
         align-items: center;
+        text-align: center;
     }
 
     .center-footer {

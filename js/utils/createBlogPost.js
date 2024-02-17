@@ -11,7 +11,6 @@ export function createBlogPost(post) {
     const blogPostCard = document.createElement(`div`);
     blogPostCard.dataset.postId = post.id;
     blogPostCard.classList.add(`blog-post`);
-    // const featuredMedia = post._embedded['wp:featuredmedia']['0'].source_url
     const featuredMedia = post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0] && post._embedded['wp:featuredmedia'][0].source_url;
     const imageUrl = featuredMedia || '/img/RIHANNAnm.jpg';
     const featuredMediaAlt = post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0] && post._embedded['wp:featuredmedia'][0].alt_text;
