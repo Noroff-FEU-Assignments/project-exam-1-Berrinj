@@ -68,7 +68,6 @@ async function renderBlogPostInfo() {
                         `;   
                 }
             } catch (error) {
-                console.error("Error ved henting av innhold:", error);
                 blogContent.innerHTML = `<div class="error">Beklager, en feil oppsto ved innlasting av innhold</div>`;
             }
         }
@@ -80,7 +79,6 @@ async function renderBlogPostInfo() {
         if (main) {
             blogContent.innerHTML = `<div class="error">Beklager, en feil oppsto ved innlasting av innhold</div>`;
     }
-        console.error(`En feil oppsto:`, error);
         return null;
 }
 }

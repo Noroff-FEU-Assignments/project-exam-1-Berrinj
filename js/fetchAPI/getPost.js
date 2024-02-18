@@ -1,3 +1,4 @@
+/*This file is in the wrong folder, but trying to move it made my soul leave the body so it stays for now */ 
 import { FENTY_EMBED_API_URL } from "./embedAPI.js";
 import { getPosts } from "../utils/posts.js";
 import { renderMedia } from "../utils/renderMedia.js";

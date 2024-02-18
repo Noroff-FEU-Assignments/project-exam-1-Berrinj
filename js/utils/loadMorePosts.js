@@ -38,7 +38,6 @@ export async function loadMorePosts() {
             }
         }
     } catch (error) {
-        console.log(error, "Error loading more posts");
         blogPostContainer.innerHTML += `<div class="error">Beklager, en feil oppsto mens flere innlegg skulle laste inn.</div>`;
         throw error;
     }

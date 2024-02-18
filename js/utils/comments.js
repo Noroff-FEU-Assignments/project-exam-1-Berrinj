@@ -4,7 +4,6 @@ export async function getComments(apiUrl) {
     const result = await response.json();
     return result;
 } catch (error) {
-    console.error(`error ved henting av kommentarer:`, error);
     throw error;
     }
 }

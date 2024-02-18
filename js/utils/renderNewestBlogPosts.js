@@ -13,10 +13,12 @@ export async function renderNewestBlogPosts() {
     });
 
     newestBlogPostSection.innerHTML = postItemsHTML.join('');
-    
+
+    const loaderElement = document.querySelector('.loader');
+          loaderElement.remove();
+
 } catch (error) {
     newestBlogPostSection.innerHTML = `<div class="error">En feil oppsto ved henting av nye innlegg</div>`;
-    console.error('Error ved hentign av nye innlegg:', error);
     throw error;
 }
 }

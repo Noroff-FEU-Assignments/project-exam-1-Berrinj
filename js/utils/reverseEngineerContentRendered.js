@@ -18,7 +18,6 @@ export async function example() {
     return data;
     });
 } catch (error) {
-    console.error('Error ved henting av data:', error);
     throw error;
 }
 }

@@ -6,7 +6,6 @@ export async function getPostInfo(postId) {
     const postInfo = await getPosts(`${FENTY_API_URL}/${postId}`);
     return postInfo;
 } catch (error) {
-    console.error(`error ved henting av innleggsinfo:`, error);
     throw error;
 }
     }

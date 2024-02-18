@@ -6,7 +6,6 @@ export async function renderMedia() {
     let mediaFile = await getMedia(FENTY_MEDIA_API_URL);
     return mediaFile;
 } catch (error) {
-    console.error('Error ved henting av media:', error);
     throw error;
 }
 }
