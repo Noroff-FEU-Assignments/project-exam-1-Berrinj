@@ -95,6 +95,3 @@ const formSubmissionHandler = (event) => {
 
 
 form.addEventListener("submit", formSubmissionHandler);
-
-/*      The article that helped me with the formSubmissionHandler() function:               */
-/*      https://css-tricks.com/headless-form-submission-with-the-wordpress-rest-api/        */

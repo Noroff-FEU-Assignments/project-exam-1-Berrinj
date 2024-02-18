@@ -3,6 +3,7 @@ import { FENTY_COMMENTS_API_URL } from "../fetchAPI/commentsAPI.js";
 import { getPostInfo } from "./getPostInfo.js";
 const newestCommentSection = document.querySelector(".newest-comments ul");
 
+
 export async function renderNewestComments() {
     try {
       const newCommentList = await getComments(FENTY_COMMENTS_API_URL);
