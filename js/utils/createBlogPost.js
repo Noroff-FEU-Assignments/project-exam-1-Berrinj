@@ -29,8 +29,8 @@ async function renderBlogPostInfo() {
     try {
         const commentsData = await getComments(`${FENTY_COMMENTS_API_URL}?post=${post.id}`);
         const categoriesList = await getCategories(`${FENTY_CATEGORY_API_URL}?post=${post.id}`);
-        const categoryName = categoriesList.length > 0 ? categoriesList[0].name : 'Uncategorized';
-        const categoryId = categoriesList.length > 0 ? categoriesList[0].id : `Undefined`;
+        const categoryName = categoriesList.length > 0 ? categoriesList[0].name : 'Ukategorisert';
+        const categoryId = categoriesList.length > 0 ? categoriesList[0].id : `Undefinert`;
 
         if (main) {
         blogPostCard.innerHTML = `<div class="blog-post-header">
