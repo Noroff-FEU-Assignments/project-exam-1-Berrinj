@@ -321,5 +321,3 @@ function submitCommentToWordPress(commentData) {
             console.error('En feil oppsto ved posting av kommentar:', error);
         });
 }
-
-/* Credit to https://www.tetchi.ca/how-to-post-comments-using-the-wordpress-rest-api for helping me on the way to a working comment section! */

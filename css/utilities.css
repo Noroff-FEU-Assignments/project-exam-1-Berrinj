@@ -65,8 +65,6 @@ a {
 
 /* 3. LOADER      */
 
-/*  Loader from https://cssloaders.github.io/   */
-
 .loader,
 .loader:before,
 .loader:after {
@@ -133,19 +131,6 @@ a {
     max-width: 90%;
     margin: auto;
     display: flex;
-}
-
-h1.site-name-placeholder {
-    font-size: 3rem;
-    /* line-height: 250px; */
-    margin: 0;
-}
-
-.header-image p {
-    display: none;
-    font-style: italic;
-    font-size: 0.8rem;
-    padding: 0 10px;
 }
 
 .site-info-container {
@@ -289,7 +274,6 @@ h1.site-name-placeholder {
     height: 200px;
     object-fit: cover;
     border-radius: 6px;
-    /* position: relative; */
     filter: brightness(0.9);
 }
 
@@ -339,7 +323,6 @@ h1.site-name-placeholder {
 .blog-content {
     display: grid;
     min-height: 100vh;
-    /* max-width: 1000px; */
     background-color: var(--main-color-three);
     grid-column: blog;
     align-content: space-between;
@@ -351,7 +334,6 @@ h1.site-name-placeholder {
 }
 
 .blog-post li {
-    /* list-style: decimal; */
     max-width: 750px;
     margin: 10px auto;
 }
@@ -426,7 +408,6 @@ h1.site-name-placeholder {
 
 .blog-post-text {
     margin: 3%;
-    /* font-size: 1.2rem; */
 }
 
 #read-more {
@@ -477,7 +458,6 @@ h1.site-name-placeholder {
     background-color: #242424;
     color: var(--main-color-two);
     grid-column: sidebar;
-    /* border-left: 1px solid var(--main-color-one); */
     grid-template-rows: min-content min-content min-content auto;
     gap: 20px;
 }
@@ -533,8 +513,6 @@ h1.site-name-placeholder {
 .newest-posts li {
     margin-bottom: 10px;
     padding: 10px 10px 5px 10px;
-    /* border-radius: 6px; */
-    /* background-color: #35423a65; */
     border-bottom: 1px dotted var(--main-color-two);
 }
 
@@ -596,15 +574,6 @@ option {
 .filter-posts:last-child {
     margin-bottom: 20px;
 }
-
-/* .searchbar {
-    margin: 7%;
-}
-
-.searchbar input {
-    padding: 6px;
-    border-radius: 6px;
-} */
 
 .go-to-post {
     margin: 0;
@@ -723,7 +692,6 @@ textarea {
 
 .breadcrumbs {
     margin: 5px 5% 0 5%;
-    /* margin-top: 5px; */
     font-size: 0.85rem;
     font-weight: 300;
     display: flex;
@@ -733,21 +701,6 @@ textarea {
 .breadcrumbs p {
     margin: 0;
 }
-
-/* .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 850px;
-    gap: 20px;
-    margin: auto;
-    justify-content: center;
-}
-
-.thumbnail img {
-    height: 150px;
-    width: 150px;
-    object-fit: cover;
-} */
 
 .single-blogpost-container,
 .contact-page-container,
@@ -814,7 +767,6 @@ textarea {
 
 .wp-block-gallery {
     display: flex;
-    /* display: none; */
     flex-wrap: wrap;
     max-width: 100%;
     justify-content: center;
@@ -979,7 +931,6 @@ textarea {
     margin: 10px;
     border: 1px solid black;
     background-color: var(--main-color-one);
-    /* background-color: white; */
     border-radius: 6px;
     overflow: hidden;
     color: var(--main-color-two);
@@ -1077,7 +1028,6 @@ textarea {
 
 .album-info {
     display: flex;
-    /* flex-wrap: wrap; */
     align-items: center;
     justify-content: space-between;
     width: 80%;

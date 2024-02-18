@@ -27,5 +27,4 @@ switch (window.location.pathname) {
       });
       break;
     default:
-    //   console.log(`No script defined for the path: ${window.location.pathname}`);
   }
