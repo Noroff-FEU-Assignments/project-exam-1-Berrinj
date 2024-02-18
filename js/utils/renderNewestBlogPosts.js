@@ -9,7 +9,7 @@ export async function renderNewestBlogPosts() {
 
     
     const postItemsHTML = newPostList.slice(0, 8).map((newPostItem) => {
-        return `<a href="single-post.html?id=${newPostItem.id}"><li>${newPostItem.title.rendered}<p class="go-to-post">Les mer..</p></li></a>`;
+        return `<li><a href="single-post.html?id=${newPostItem.id}">${newPostItem.title.rendered}<p class="go-to-post">Les mer..</p></li></a></li>`;
     });
 
     newestBlogPostSection.innerHTML = postItemsHTML.join('');
