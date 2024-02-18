@@ -23,10 +23,6 @@ export function createBlogPost(post) {
     month: 'long',
     year: 'numeric'
 });
-//     const formattedTime = new Date(post.date).toLocaleTimeString('nb-NO', {
-//     hour: 'numeric',
-//     minute: 'numeric'
-// });
 
 
 async function renderBlogPostInfo() {
