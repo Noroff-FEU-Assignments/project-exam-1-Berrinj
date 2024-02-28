@@ -92,7 +92,7 @@ git clone git@github.com:Noroff-FEU-Assignments/project-exam-1-Berrinj.git
 ### Running
 
 1. Clone the repo
-2. 2.Run repo in a code editor, I suggest using "VScode".
+2. Run repo in a code editor, I suggest using "VScode".
 3. Choose index.html and open in live server.
 
 ## Contributing
