@@ -1,10 +1,17 @@
-## Project Exam 1
+# Fenty Blog
 
-## Goal
+![image](https://onedrive.live.com/embed?resid=6948AB603E194695%2184789&authkey=%21AHRGf56RFew0BZM&height=660) <br>
+
+Noroff Project Exam 1, February 2024<br>
+[View the website live on Netlify](https://fenty.netlify.app/)
+
+## Description
+
+### Goal
 
 To put into practice the skills learned over your first year of studies.
 
-## Brief
+### Brief
 You have been tasked with creating a blog site. You can choose the design and topics covered on the blog, but it should have at least the following pages:
 -	Home page
 -	About page
@@ -48,7 +55,7 @@ You will need to add at least 12 blogs for your website. You can use lorem ipsum
 
 Note that this is an exam, and therefore tutor support will be limited as per the study plan.
 
-## Level 1 Process
+### Level 1 Process
 
 1.	Decide on the theme for the blog you’re going to make
 2.	Create a prototype of the website
@@ -60,9 +67,47 @@ Note that this is an exam, and therefore tutor support will be limited as per th
 8.	Write a report documenting your project (template provided in this repository).
 9.	Submit your report as a PDF and a link to both your Netlify deployment and your GitHub repo.
  
-## Level 2 Process (optional)
+### Level 2 Process (optional)
 
 1.	You can try adding a sort, filter, or search to the blog posts page allowing users to find the blog post more easily that they’re looking for. 
 2.	Post the data from the contact form to WordPress so you have the details saved.
 3.	Allow users to submit comments on a blog post, and post this data to WordPress
+
+## Built With
+
+- HTML
+- CSS
+- JavaScript
+
+## Getting Started
+
+### Installing
+
+1. Clone the repo:
+
+```bash
+git clone git@github.com:NoroffFEU/Berrinj/game-hub_v3.git
+```
+
+### Running
+
+1. Clone the repo
+2. 2.Run repo in a code editor, I suggest using "VScode".
+3. Choose index.html and open in live server.
+
+## Contributing
+
+Project not open for contributions
+
+## Contact
+
+[Send me an email](mailto:berremarte@gmail.com)
+
+[www.linkedin.com](https://www.linkedin.com/in/marte-lilleberre-1013b326a/)
+
+### Acknowledgments
+
+A big thank you to my class mates and friends/family that tokkt he time to review/test my site and giving feedback.
+
+
 
