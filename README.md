@@ -7,7 +7,46 @@ Noroff Project Exam 1, February 2024<br>
 
 ## Description
 
-### Goal
+For this project I was tasked to make blog posts in wordpress, build the blog using HTML/CSS and JavaScript, and render my data from the Wordpress REST API.
+
+## Built With
+
+- HTML/CSS
+- JavaScript
+- Wordpress
+- REST API
+
+## Getting Started
+
+### Installing
+
+1. Clone the repo:
+
+```bash
+git clone git@github.com:Noroff-FEU-Assignments/project-exam-1-Berrinj.git
+```
+
+### Running
+
+1. Clone the repo
+2. Run repo in a code editor, I suggest using "VScode".
+3. Choose index.html and open in live server.
+
+## Contributing
+
+Project not open for contributions
+
+## Contact
+
+[Send me an email](mailto:berremarte@gmail.com)
+
+[www.linkedin.com](https://www.linkedin.com/in/marte-lilleberre-1013b326a/)
+
+### Acknowledgments
+
+A big thank you to my class mates and friends/family that tokkt he time to review/test my site and giving feedback.
+
+## Full Project Brief
 
 To put into practice the skills learned over your first year of studies.
 
@@ -72,42 +111,6 @@ Note that this is an exam, and therefore tutor support will be limited as per th
 1.	You can try adding a sort, filter, or search to the blog posts page allowing users to find the blog post more easily that they’re looking for. 
 2.	Post the data from the contact form to WordPress so you have the details saved.
 3.	Allow users to submit comments on a blog post, and post this data to WordPress
-
-## Built With
-
-- HTML
-- CSS
-- JavaScript
-
-## Getting Started
-
-### Installing
-
-1. Clone the repo:
-
-```bash
-git clone git@github.com:Noroff-FEU-Assignments/project-exam-1-Berrinj.git
-```
-
-### Running
-
-1. Clone the repo
-2. Run repo in a code editor, I suggest using "VScode".
-3. Choose index.html and open in live server.
-
-## Contributing
-
-Project not open for contributions
-
-## Contact
-
-[Send me an email](mailto:berremarte@gmail.com)
-
-[www.linkedin.com](https://www.linkedin.com/in/marte-lilleberre-1013b326a/)
-
-### Acknowledgments
-
-A big thank you to my class mates and friends/family that tokkt he time to review/test my site and giving feedback.
 
 
 
