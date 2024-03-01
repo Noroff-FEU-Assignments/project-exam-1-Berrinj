@@ -23,7 +23,7 @@ For this project I was tasked to make blog posts in wordpress, build the blog us
 1. Clone the repo:
 
 ```bash
-git clone git@github.com:Noroff-FEU-Assignments/project-exam-1-Berrinj.git
+git clone https://github.com/Noroff-FEU-Assignments/project-exam-1-Berrinj.git
 ```
 
 ### Running
