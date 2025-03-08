@@ -1,0 +1,9 @@
+.category {
+    margin-left: 5%;
+    font-size: 0.85rem;
+}
+
+.category a {
+    font-style: italic;
+    font-weight: 500;
+}

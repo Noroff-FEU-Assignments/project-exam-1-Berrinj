@@ -1,0 +1,9 @@
+.single-blog-post-text iframe {
+    max-width: 100%;
+}
+
+.wp-block-embed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

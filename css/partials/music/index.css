@@ -1,0 +1,24 @@
+.album {
+    background-color: var(--main-color-one);
+    color: #fff;
+}
+
+.album-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    min-height: 350px;
+    margin: 20px auto;
+    gap: 20px;
+}
+
+.cover-art {
+    max-width: 300px;
+    min-width: 150px;
+}
+
+.waiting {
+    width: 100%;
+    text-align: center;
+}

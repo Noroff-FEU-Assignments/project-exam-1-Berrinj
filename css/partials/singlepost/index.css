@@ -1,0 +1,16 @@
+@import "header-img.css";
+@import "blog-text.css";
+@import "comments.css";
+@import "modal.css";
+@import "breadcrumbs.css";
+@import "gallery.css";
+@import "video.css";
+@import "posts-carousel.css";
+@import "back-btn.css";
+@import "category.css";
+@import "info.css";
+
+
+.single-blogpost-content {
+    border-bottom: 1px solid black;
+}

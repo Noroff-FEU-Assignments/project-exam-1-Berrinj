@@ -1,0 +1,6 @@
+.single-blog-post-info {
+    display: flex;
+    margin-left: 5%;
+    gap: 40px;
+    font-size: 0.85rem;
+}

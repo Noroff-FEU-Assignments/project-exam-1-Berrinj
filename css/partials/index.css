@@ -1,0 +1,13 @@
+@import "loader.css";
+@import "nav.css";
+@import "footer.css";
+@import "globals.css";
+@import "buttons.css";
+@import "home/index.css";
+@import "contact/index.css";
+@import "singlepost/index.css";
+@import "brands/index.css";
+@import "music/index.css";
+@import "privacy-policy/index.css";
+@import "category/index.css";
+@import "variables/index.css";

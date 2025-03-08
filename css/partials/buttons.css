@@ -1,0 +1,11 @@
+#comment-button {
+    padding: 10px;
+    background-color: var(--main-color-two);
+    border-radius: 6px;
+}
+
+#comment-button:hover {
+    background-color: var(--main-color-one);
+    color: #fff;
+    cursor: pointer;
+}

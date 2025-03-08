@@ -1,0 +1,13 @@
+#go-back {
+    margin: 3%;
+    display: flex;
+    justify-content: start;
+    width: fit-content;
+    color: #fff;
+    padding: 10px;
+    border-radius: 6px;
+    font-style: italic;
+    font-size: 0.9rem;
+    background-color: var(--main-color-one);
+    cursor: pointer;
+}

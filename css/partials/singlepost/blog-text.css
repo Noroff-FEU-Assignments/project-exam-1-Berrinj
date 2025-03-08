@@ -1,0 +1,18 @@
+.main-content h1 {
+    margin: 0 5% 0 5%;
+    padding-top: 20px;
+}
+
+.single-blog-post-text {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.single-blog-post-text li {
+    padding: 5px;
+}
+
+.single-blog-post-text a {
+    color: darkblue;
+    font-style: italic;
+}

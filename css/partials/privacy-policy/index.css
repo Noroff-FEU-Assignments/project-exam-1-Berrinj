@@ -1,0 +1,12 @@
+.pp-title {
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.mail-to {
+    font-weight: 500;
+}
+
+.mail-to:hover {
+    font-style: italic;
+}
