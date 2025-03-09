@@ -7,33 +7,50 @@ const main = document.querySelector("main");
 const blogContent = document.querySelector(".blog-content");
 
 export function createBlogPost(post) {
-
-    try {
-  
+  try {
     const blogPostCard = document.createElement(`div`);
     blogPostCard.dataset.postId = post.id;
     blogPostCard.classList.add(`blog-post`);
-    const featuredMedia = post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0] && post._embedded['wp:featuredmedia'][0].source_url;
-    const imageUrl = featuredMedia || '/img/RIHANNAnm.jpg';
-    const featuredMediaAlt = post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0] && post._embedded['wp:featuredmedia'][0].alt_text;
+    const featuredMedia =
+      post._embedded["wp:featuredmedia"] &&
+      post._embedded["wp:featuredmedia"][0] &&
+      post._embedded["wp:featuredmedia"][0].source_url;
+    const imageUrl = featuredMedia || "/img/RIHANNAnm.jpg";
+    const featuredMediaAlt =
+      post._embedded["wp:featuredmedia"] &&
+      post._embedded["wp:featuredmedia"][0] &&
+      post._embedded["wp:featuredmedia"][0].alt_text;
     const imageAltText = featuredMediaAlt || `missing alt text`;
 
-    const formattedDate = new Date(post.date).toLocaleDateString('nb-NO', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric'
-});
+    const formattedDate = new Date(post.date).toLocaleDateString("nb-NO", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
 
+    async function renderBlogPostInfo() {
+      try {
+        // const commentsData = await getComments(
+        //   `${FENTY_COMMENTS_API_URL}?post=${post.id}`
+        // );
+        // if (commentsData.length > 0) {
+        //   console.log(commentsData);
+        //   console.log(post._embedded.replies[0].length);
+        // }
+        const commentsNumber = post._embedded.replies
+          ? post._embedded.replies[0].length
+          : 0;
 
-async function renderBlogPostInfo() {
-    try {
-        const commentsData = await getComments(`${FENTY_COMMENTS_API_URL}?post=${post.id}`);
-        const categoriesList = await getCategories(`${FENTY_CATEGORY_API_URL}?post=${post.id}`);
-        const categoryName = categoriesList.length > 0 ? categoriesList[0].name : 'Ukategorisert';
-        const categoryId = categoriesList.length > 0 ? categoriesList[0].id : `Undefinert`;
+        const categoriesList = await getCategories(
+          `${FENTY_CATEGORY_API_URL}?post=${post.id}`
+        );
+        const categoryName =
+          categoriesList.length > 0 ? categoriesList[0].name : "Ukategorisert";
+        const categoryId =
+          categoriesList.length > 0 ? categoriesList[0].id : `Undefinert`;
 
         if (main) {
-        blogPostCard.innerHTML = `<div class="blog-post-header">
+          blogPostCard.innerHTML = `<div class="blog-post-header">
                                     <div class="blog-date">
                                         <h4>${formattedDate}</h4>
                                     </div>
@@ -58,25 +75,25 @@ async function renderBlogPostInfo() {
                                         <p>Av: ${post._embedded.author[0].name} i <a href="category.html?id=${categoryId}&categoryName=${categoryName}">${categoryName}</a></p>
                                     </div>
                                     <div class="dateandtime">
-                                        <p>Kommentarer: ${commentsData.length}</p>
+                                        <p>Kommentarer: ${commentsNumber}</p>
                                     </div>
                                 </div>
-                        `;   
-                }
-            } catch (error) {
-                blogContent.innerHTML = `<div class="error">Beklager, en feil oppsto ved innlasting av innhold</div>`;
-            }
+                        `;
         }
+      } catch (error) {
+        blogContent.innerHTML = `<div class="error">Beklager, en feil oppsto ved innlasting av innhold</div>`;
+      }
+    }
 
-        renderBlogPostInfo();
+    renderBlogPostInfo();
 
     return blogPostCard;
-    } catch (error) {
-        if (main) {
-            blogContent.innerHTML = `<div class="error">Beklager, en feil oppsto ved innlasting av innhold</div>`;
+  } catch (error) {
+    if (main) {
+      blogContent.innerHTML = `<div class="error">Beklager, en feil oppsto ved innlasting av innhold</div>`;
     }
-        return null;
-}
+    return null;
+  }
 }
 
 example();
