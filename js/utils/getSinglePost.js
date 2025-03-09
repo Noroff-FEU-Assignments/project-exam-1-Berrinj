@@ -1,10 +1,8 @@
 import { FENTY_CATEGORY_API_URL } from "../fetchAPI/categoriesAPI.js";
 import { getCategories } from "../utils/categories.js";
-import { FENTY_COMMENTS_API_URL } from "../fetchAPI/commentsAPI.js";
 import { FENTY_API_URL } from "../fetchAPI/baseAPI.js";
 import { getPosts } from "./posts.js";
 import { dataFromContentRendered } from "./reverseEngineerContentRendered.js";
-import { getComments } from "./comments.js";
 
 const queryString = document.location.search;
 export const params = new URLSearchParams(queryString);
@@ -12,10 +10,50 @@ export const id = params.get("id");
 
 const url = `${FENTY_API_URL}/${id}?_embed`;
 
-const main = document.querySelector("main");
-const mainContainer = document.querySelector(".single-blogpost-container");
 const contentContainer = document.querySelector(".single-blogpost-content");
 const singleBlogPostContainer = document.querySelector(".main-content");
+const commentOnHold = document.querySelector(".comment-on-hold");
+
+function submitCommentToWordPress(commentData) {
+  const endpointURL = `https://fenty.berremarte.no/wp-json/wp/v2/comments?post=${id}`;
+  fetch(endpointURL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(commentData),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.status === `hold`) {
+        commentOnHold.innerHTML = `Kommentaren din er til godkjenning.`;
+      } else {
+        commentOnHold.innerHTML = "";
+      }
+
+      fetchUpdatedComments();
+    })
+    .catch((error) => {
+      console.error("En feil oppsto ved posting av kommentar:", error);
+    });
+}
+
+function fetchUpdatedComments() {
+  fetch(`${FENTY_API_URL}/${id}?_embed`)
+    .then((response) => response.json())
+    .then((result) => {
+      const comments = result._embedded.replies
+        ? result._embedded.replies[0]
+        : [];
+      fetchCommentsAndUpdateUI(comments);
+    })
+    .catch((error) => {
+      console.error(
+        "En feil oppsto ved henting av oppdaterte kommentarer:",
+        error
+      );
+    });
+}
 
 export async function getSinglePost() {
   try {
@@ -75,6 +113,13 @@ export async function getSinglePost() {
                                 <p>Kategori: <a href="category.html?id=${categoryId}&categoryName=${categoryName}">${categoryName}</a></p>
                                 </div>
                                 <div id="go-back" onclick="history.back()">&larr; Gå tilbake</div>`;
+
+    const comments = result._embedded.replies
+      ? result._embedded.replies[0]
+      : [];
+
+    // Call fetchCommentsAndUpdateUI with comments data
+    fetchCommentsAndUpdateUI(comments);
 
     await modalClick();
     galleryClassList();
@@ -165,6 +210,7 @@ function handleCommentSubmitted() {
     submitCommentToWordPress(commentData);
   }
 }
+
 const isEmailValid = (email) => {
   const re =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -221,52 +267,20 @@ function validateInputs(username, email, comment) {
 const commentContent = document.querySelector(".comment-content");
 const noComment = document.querySelector(".no-comments");
 
-async function fetchCommentsAndUpdateUI() {
-  const comments = await getComments(`${FENTY_COMMENTS_API_URL}?post=${id}`);
-
+function fetchCommentsAndUpdateUI(comments) {
   updateCommentSection(comments);
 }
 
 function updateCommentSection(comments) {
-  commentContent.innerHTML = "";
-
-  if (comments.length === 0) {
-    noComment.innerHTML = "Ingen kommentarer, vær den første!";
-  }
-
-  const commentsHeader = document.querySelector(".comments h4");
-  commentsHeader.innerHTML = `Kommentarer (${comments.length})`;
-
-  comments.forEach((comment) => {
-    const formattedDate = new Date(comment.date).toLocaleDateString("nb-NO", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    });
-    const formattedTime = new Date(comment.date).toLocaleTimeString("nb-NO", {
-      hour: "numeric",
-      minute: "numeric",
-    });
-
-    commentContent.innerHTML += `<div class="comment-card">
-                                    <img class="commenter-avatar" src="${comment.author_avatar_urls[48]}">
-                                    <div class="commenter-name">${comment.author_name}</div>
-                                    <div class="comment-posted">${comment.content.rendered}</div>
-                                    <div class="comment-date">${formattedDate} ${formattedTime}</div>
-                                </div>`;
-  });
-}
-
-async function displayComments() {
   try {
-    const comments = await getComments(`${FENTY_COMMENTS_API_URL}?post=${id}`);
+    commentContent.innerHTML = "";
 
     if (comments.length === 0) {
       noComment.innerHTML = "Ingen kommentarer, vær den første!";
     }
 
     const commentsHeader = document.querySelector(".comments h4");
-    commentsHeader.innerHTML += ` (${comments.length})`;
+    commentsHeader.innerHTML = `Kommentarer (${comments.length})`;
 
     comments.forEach((comment) => {
       const formattedDate = new Date(comment.date).toLocaleDateString("nb-NO", {
@@ -283,37 +297,10 @@ async function displayComments() {
                                     <img class="commenter-avatar" src="${comment.author_avatar_urls[48]}">
                                     <div class="commenter-name">${comment.author_name}</div>
                                     <div class="comment-posted">${comment.content.rendered}</div>
-                                    <div class="comment-date">${formattedDate} ${formattedTime}</div
-                                    </div>`;
+                                    <div class="comment-date">${formattedDate} ${formattedTime}</div>
+                                </div>`;
     });
   } catch (error) {
-    commentContent.innerHTML = `<div class="error">En feil oppsto ved innlasting av kommentarer</div>`;
+    console.error("En feil oppsto ved henting av kommentarer:", error);
   }
-}
-
-displayComments();
-
-const endpointURL = `https://fenty.berremarte.no/wp-json/wp/v2/comments?post=${id}`;
-const commentOnHold = document.querySelector(".comment-on-hold");
-
-function submitCommentToWordPress(commentData) {
-  fetch(endpointURL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(commentData),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.status === `hold`) {
-        commentOnHold.innerHTML = `Kommentaren din er til godkjenning.`;
-      } else {
-        commentOnHold.innerHTML = "";
-      }
-      fetchCommentsAndUpdateUI();
-    })
-    .catch((error) => {
-      console.error("En feil oppsto ved posting av kommentar:", error);
-    });
 }
