@@ -1,131 +1,129 @@
 .sidebar {
-    display: grid;
-    min-height: 500px;
-    background-color: #242424;
-    color: var(--main-color-two);
-    grid-column: sidebar;
-    grid-template-rows: min-content min-content min-content auto;
-    gap: 20px;
+  display: grid;
+  min-height: 500px;
+  background-color: #242424;
+  color: var(--main-color-two);
+  grid-column: sidebar;
+  grid-template-rows: min-content min-content min-content auto;
+  gap: 20px;
 }
 
 .sidebar h2 {
-    text-align: center;
-    background-color: #35423a7a;
-    padding: 10px;
+  text-align: center;
+  background-color: #35423a7a;
+  padding: 10px;
 }
 
 .sidebar img {
-    max-width: 250px;
-    opacity: 80%;
+  max-width: 250px;
+  opacity: 80%;
 }
 
 .some-icons {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding: 20px 20px 0 20px;
-    font-size: 0.9rem;
-    color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px 20px 0 20px;
+  font-size: 0.9rem;
+  color: #fff;
 }
 
 .fa-brands {
-    width: 40px;
-    color: var(--main-color-two)
+  width: 40px;
+  color: var(--main-color-two);
 }
 
 .instagram:hover,
 .twitter:hover {
-    color: var(--main-color-two)
+  color: var(--main-color-two);
 }
 
 .newest-posts,
 .newest-comments,
 .social-media-sidebar {
-    max-width: 300px;
-    min-width: 200px;
+  max-width: 300px;
+  min-width: 200px;
 }
-
 
 .newest-posts ul,
 .newest-comments ul {
-    margin-right: 7%;
-    margin-left: 7%;
-    font-size: 0.9rem;
-    color: #fff;
-    font-weight: 300;
+  margin-right: 7%;
+  margin-left: 7%;
+  font-size: 0.9rem;
+  color: #fff;
+  font-weight: 300;
 }
 
 .newest-comments li,
 .newest-posts li {
-    margin-bottom: 10px;
-    padding: 10px 10px 5px 10px;
-    border-bottom: 1px dotted var(--main-color-two);
+  margin-bottom: 10px;
+  padding: 10px 10px 5px 10px;
+  border-bottom: 1px dotted var(--main-color-two);
 }
 
 .newest-comments p {
-    margin: 0;
+  margin: 0;
 }
 
 .comment-content p {
-    font-weight: 400;
-    padding: 10px 0
+  font-weight: 400;
+  padding: 10px 0;
 }
 
 .comment-info {
-    font-style: italic;
+  font-style: italic;
 }
 
 .newest-posts li:hover,
 .newest-comments li:hover {
-    background-color: #495a4f7a;
-    border-radius: 6px;
+  background-color: #495a4f7a;
+  border-radius: 6px;
 }
 
 .read-more {
-    text-align: end;
-    font-size: 0.8rem;
-    margin-top: 5px;
-    border-bottom: 1px solid var(--main-color-two);
-    font-style: italic;
-    font-weight: 200;
+  text-align: end;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  border-bottom: 1px solid var(--main-color-two);
+  font-style: italic;
+  font-weight: 200;
 }
 
 .filter-posts-by {
-    text-align: center;
-    margin: 7%;
+  text-align: center;
+  margin: 7%;
 }
 
 #filter-posts-by,
 #filter-posts-by-mobile {
-    padding: 6px;
-    border-radius: 6px;
-    margin-top: 5px;
-    width: 90%;
-    background-color: #35423a7a;
-    color: white;
-    text-align: center;
+  padding: 6px;
+  border-radius: 6px;
+  margin-top: 5px;
+  width: 90%;
+  background-color: #35423a7a;
+  color: white;
+  text-align: center;
 }
 
 #filter-posts-by:hover {
-    background-color: #4a64547a;
-    cursor: pointer;
+  background-color: #4a64547a;
+  cursor: pointer;
 }
 
 option {
-    background-color: rgba(173, 186, 178, 0.9);
-    ;
-    color: black;
+  background-color: rgba(173, 186, 178, 0.9);
+  color: black;
 }
 
 .filter-posts:last-child {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .go-to-post {
-    margin: 0;
-    margin-top: 5px;
-    text-align: end;
-    font-style: italic;
-    font-size: 0.8rem;
-    color: var(--main-color-two);
+  margin: 0;
+  margin-top: 5px;
+  text-align: end;
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--main-color-two);
 }

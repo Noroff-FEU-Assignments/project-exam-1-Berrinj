@@ -42,7 +42,7 @@ export function createBlogPost(post) {
           : 0;
 
         const categoriesList = await getCategories(
-          `${FENTY_CATEGORY_API_URL}?post=${post.id}`
+          `${FENTY_CATEGORY_API_URL}?post=${post.id}`,
         );
         const categoryName =
           categoriesList.length > 0 ? categoriesList[0].name : "Ukategorisert";

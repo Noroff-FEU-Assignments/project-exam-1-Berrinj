@@ -1,10 +1,10 @@
 :root {
-    --main-color-one: #35423A;
-    --main-color-two: #ADBAB2;
-    --main-color-three: #242424;
-    --body-bg-color: #504E4E;
-    --menu-bg-color: #000;
-    --menu-text-color: #ADBAB2;
-    --li-hover-color: #fff;
-    --body-font-family: 'Inter', sans-serif;
+  --main-color-one: #35423a;
+  --main-color-two: #adbab2;
+  --main-color-three: #242424;
+  --body-bg-color: #504e4e;
+  --menu-bg-color: #000;
+  --menu-text-color: #adbab2;
+  --li-hover-color: #fff;
+  --body-font-family: "Inter", sans-serif;
 }

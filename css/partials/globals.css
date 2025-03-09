@@ -1,50 +1,50 @@
 body {
-    margin: 0;
-    padding: 0;
-    background-color: var(--body-bg-color);
-    font-family: var(--body-font-family);
-    min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: var(--body-bg-color);
+  font-family: var(--body-font-family);
+  min-height: 100vh;
 }
 
 main {
-    max-width: 1200px;
-    margin: auto;
+  max-width: 1200px;
+  margin: auto;
 }
 
 h4,
 h2,
 h5 {
-    margin: 0;
+  margin: 0;
 }
 
 ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 .horizontal-line {
-    border-bottom: 1px dotted white;
-    margin: 10px auto;
-    max-width: 215px;
+  border-bottom: 1px dotted white;
+  margin: 10px auto;
+  max-width: 215px;
 }
 
 .error {
-    background-color: #ff0000;
-    padding: 20px;
-    text-align: center;
+  background-color: #ff0000;
+  padding: 20px;
+  text-align: center;
 }
 
 .main-content {
-    max-width: 1200px;
-    background-color: #fff;
-    min-height: 100vh;
-    margin: auto;
-    padding-bottom: 30px;
-    display: flex;
-    flex-direction: column;
+  max-width: 1200px;
+  background-color: #fff;
+  min-height: 100vh;
+  margin: auto;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
 }

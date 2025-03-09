@@ -11,12 +11,12 @@ const categoryNameHeader = document.querySelector(".news-and-content");
 categoryNameHeader.innerHTML += `${categoryName}`;
 
 const blogPostContainer = document.querySelector(
-  ".blog-posts-category-container"
+  ".blog-posts-category-container",
 );
 
 async function renderPostByCategoryCard() {
   const getCategoryData = await getPosts(
-    `${FENTY_EMBED_API_URL}&categories=${categoryId}`
+    `${FENTY_EMBED_API_URL}&categories=${categoryId}`,
   );
   blogPostContainer.innerHTML = "";
   getCategoryData.forEach((post) => {

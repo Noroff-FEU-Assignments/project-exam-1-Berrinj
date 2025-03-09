@@ -50,7 +50,7 @@ function fetchUpdatedComments() {
     .catch((error) => {
       console.error(
         "En feil oppsto ved henting av oppdaterte kommentarer:",
-        error
+        error,
       );
     });
 }
@@ -73,7 +73,7 @@ export async function getSinglePost() {
     const imageAltText = featuredMediaAlt || `missing alt text`;
 
     const categoriesList = await getCategories(
-      `${FENTY_CATEGORY_API_URL}?post=${id}`
+      `${FENTY_CATEGORY_API_URL}?post=${id}`,
     );
     const categoryName =
       categoriesList.length > 0 ? categoriesList[0].name : "Uncategorized";
