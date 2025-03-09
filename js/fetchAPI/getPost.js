@@ -38,7 +38,7 @@ export async function renderBlogPosts(selectedCategory = "All") {
       blogPosts = await getPosts(`${FENTY_EMBED_API_URL}&page=${currentPage}`);
     } else {
       blogPosts = await getPosts(
-        `${FENTY_EMBED_API_URL}&categories=${selectedCategory}`
+        `${FENTY_EMBED_API_URL}&categories=${selectedCategory}`,
       );
     }
 
@@ -49,7 +49,6 @@ export async function renderBlogPosts(selectedCategory = "All") {
   } catch (error) {
     blogPostContainer.innerHTML = `<div class="error">Beklager, en feil oppsto mens innleggene skulle lastes inn.</div>`;
     console.error("Beklager en feil oppsto:", error);
-    throw error;
   }
 }
 
