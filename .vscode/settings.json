@@ -4,5 +4,13 @@
   "[css]": {
     "editor.tabSize": 2,
     "editor.insertSpaces": true
+  },
+  "[javascript]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[html]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
   }
 }
